@@ -1,0 +1,249 @@
+@import "tailwindcss";
+
+/* Theme-switched semantic colours. Day is the default; night is set by
+   data-theme="night" on <html> (see components/layout/ThemeScript). */
+:root {
+  --c-apricot: #e9b98c;
+  --c-apricot-soft: #f0dec7;
+  --c-red: #a8401f;
+  --c-red-bright: #c4552f;
+  --c-clay: #f5f0e8;
+  --c-black: #1e1a17;
+  --c-sky: #a9c3d3;
+  --c-navy: #0d1829;
+  --c-navy-raised: #152338;
+
+  --bg: var(--c-clay);
+  --bg-alt: var(--c-apricot-soft);
+  --bg-band: var(--c-sky);
+  --bg-deep: var(--c-black);
+  --card: var(--c-clay);
+  --fg: var(--c-black);
+  --fg-muted: #574b42;
+  --fg-on-deep: #f5f0e8;
+  --accent: var(--c-red);
+  --accent-contrast: #ffffff;
+  --line: rgb(30 26 23 / 0.38);
+  --overlay: rgb(30 26 23 / 0.32);
+  --focus: #1d4f91;
+  color-scheme: light;
+}
+
+:root[data-theme="night"] {
+  --bg: var(--c-navy);
+  --bg-alt: var(--c-navy-raised);
+  --bg-band: #1b2c46;
+  --bg-deep: #070e1a;
+  --card: var(--c-navy-raised);
+  --fg: #f1e8da;
+  --fg-muted: #bfb6a8;
+  --fg-on-deep: #f1e8da;
+  --accent: var(--c-apricot);
+  --accent-contrast: var(--c-navy);
+  --line: rgb(241 232 218 / 0.34);
+  --overlay: rgb(5 10 20 / 0.42);
+  --focus: #f6c88f;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-band: var(--bg-band);
+  --color-deep: var(--bg-deep);
+  --color-card: var(--card);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-on-deep: var(--fg-on-deep);
+  --color-accent: var(--accent);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-line: var(--line);
+  --color-apricot: var(--c-apricot);
+  --color-apricot-soft: var(--c-apricot-soft);
+  --color-red: var(--c-red);
+  --color-clay: var(--c-clay);
+  --color-camelthorn: var(--c-black);
+  --color-sky: var(--c-sky);
+  --color-navy: var(--c-navy);
+
+  --font-sans: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, serif;
+}
+
+@layer base {
+  html {
+    background: var(--bg);
+    color: var(--fg);
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    line-height: 1.55;
+    background: var(--bg);
+    color: var(--fg);
+    transition:
+      background-color 0.6s ease,
+      color 0.6s ease;
+  }
+  :focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  ::selection {
+    background: var(--c-apricot);
+    color: var(--c-black);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
+
+@layer components {
+  /* Giant wide caps for page heroes. */
+  .display {
+    font-family: var(--font-sans);
+    font-stretch: 125%;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: -0.045em;
+    line-height: 0.86;
+  }
+  /* Large statement paragraphs and names. */
+  .statement {
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.16;
+  }
+  /* Small bold serif section label. */
+  .label {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.005em;
+  }
+  .rule-dashed {
+    border-top: 1px dashed var(--line);
+  }
+  .gutter {
+    padding-inline: clamp(1.25rem, 1.7vw, 1.5rem);
+  }
+  .section-y {
+    padding-block: clamp(4.5rem, 9vw, 8.5rem);
+  }
+  .prose-namib p {
+    margin-block: 0 1.1em;
+  }
+  .prose-namib h2 {
+    font-family: var(--font-sans);
+    font-size: 1.75rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin: 2.2em 0 0.7em;
+  }
+  .prose-namib h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin: 1.8em 0 0.5em;
+  }
+  .prose-namib ul {
+    list-style: disc;
+    padding-left: 1.25em;
+    margin-bottom: 1.1em;
+  }
+  .prose-namib li {
+    margin-bottom: 0.35em;
+  }
+  .prose-namib a {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    color: var(--accent);
+  }
+  .prose-namib strong {
+    font-weight: 700;
+  }
+  .prose-namib blockquote {
+    border-left: 2px solid var(--accent);
+    padding-left: 1em;
+    font-style: italic;
+    margin: 1.5em 0;
+  }
+}
+
+/* Faint stars, night mode only. Static dots; a slow twinkle unless reduced motion. */
+.starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  background-image:
+    radial-gradient(1px 1px at 12% 18%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 27% 72%, #fff 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 41% 33%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 58% 84%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 66% 12%, #fff 50%, transparent 51%),
+    radial-gradient(1.4px 1.4px at 79% 47%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 76%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 94% 24%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 6% 58%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 6%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 50% 55%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 93%, #fff 50%, transparent 51%);
+  background-size: 420px 420px;
+}
+:root[data-theme="night"] .starfield {
+  opacity: 0.32;
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root[data-theme="night"] .starfield {
+    animation: twinkle 9s ease-in-out infinite alternate;
+  }
+}
+@keyframes twinkle {
+  from {
+    opacity: 0.22;
+  }
+  to {
+    opacity: 0.38;
+  }
+}
+
+/* Scroll reveal. Hidden start state only once JS is running (html.js). */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0s);
+}
+.js .reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    transform: none;
+  }
+}
+
+/* Day/night visibility helpers. */
+:root[data-theme="night"] .day-only {
+  display: none !important;
+}
+:root:not([data-theme="night"]) .night-only {
+  display: none !important;
+}

@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
   title: "Journeys: private Namibia itineraries",
   description: "Eight private journeys across Namibia, from the classic loop to the Skeleton Coast by air, each with a day-by-day route planner, light notes and stargazing nights.",
   path: "/journeys",
-  image: "/images/hero-journeys.jpg",
+  image: "/photos/hero-journeys.jpg",
 });
 
 export default function JourneysPage() {
@@ -24,7 +24,7 @@ export default function JourneysPage() {
       <PageHero
         title="Journeys"
         subtitle="Eight ways through Namibia, each built around the light. Every one can be changed: longer, slower, or with a different way of travelling."
-        img={{ src: "/images/hero-journeys.jpg", alt: "Placeholder: evening light on the dunes" }}
+        img={{ src: "/photos/hero-journeys.jpg", alt: "Acacias and mountains in the Namib" }}
       />
 
       <section aria-label="Introduction" className="section-y bg-bg">

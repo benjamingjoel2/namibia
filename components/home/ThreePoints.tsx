@@ -6,17 +6,17 @@ const points = [
   {
     title: "Light",
     text: "We plan every day around sunrise, sunset and the stars: which dune at dawn, which waterhole at dusk, which nights are moonless.",
-    img: { src: "/images/point-light.jpg", alt: "Placeholder: dunes in low evening light" },
+    img: { src: "/photos/point-light.jpg", alt: "A red dune crest in low light" },
   },
   {
     title: "Space",
     text: "Remote camps, private conservancies and quiet roads. Often, the only footprints on the dune will be yours.",
-    img: { src: "/images/point-space.jpg", alt: "Placeholder: a single lit tent under a wide sky" },
+    img: { src: "/photos/point-space.jpg", alt: "Oryx on a wide desert plain" },
   },
   {
     title: "Honesty",
     text: "Real distances, real roads, real advice. If a day is long, or a road is rough, we'll say so before you book.",
-    img: { src: "/images/point-honesty.jpg", alt: "Placeholder: a 4x4 on a long gravel road" },
+    img: { src: "/photos/point-honesty.jpg", alt: "A 4x4 on sandy tracks near the dunes" },
   },
 ];
 

@@ -12,7 +12,7 @@ export const metadata = pageMetadata({
   description:
     "The Owambo, Herero, Himba, San, Nama, Damara and other peoples of Namibia: their histories, and how to visit in ways that benefit communities. Why we avoid 'show village' tourism.",
   path: "/cultures",
-  image: "/images/hero-cultures.jpg",
+  image: "/photos/hero-cultures.jpg",
 });
 
 const principles = [
@@ -35,7 +35,7 @@ export default function CulturesPage() {
         }
         fitText="Cultures of Namibia"
         subtitle="Many peoples, many languages, one country. Here's how we visit, and why we avoid some of what's on offer."
-        img={{ src: "/images/hero-cultures.jpg", alt: "Placeholder: the hills of the Kunene at dawn" }}
+        img={{ src: "/photos/hero-cultures.jpg", alt: "Golden light and an acacia in the hills of the north-west" }}
       />
 
       <section aria-labelledby="intro-label" className="section-y bg-bg">
@@ -124,12 +124,12 @@ export default function CulturesPage() {
         </div>
       </section>
 
-      <ParallaxBand img={{ src: "/images/band-cultures.jpg", alt: "Placeholder: ancient engravings on red sandstone" }} />
+      <ParallaxBand img={{ src: "/photos/band-cultures.jpg", alt: "Ancient engravings on sandstone" }} />
 
       <section aria-labelledby="craft-label" className="bg-bg-alt">
         <div className="grid md:grid-cols-2">
           <div className="relative min-h-[22rem]">
-            <Image src="/images/culture-craft.jpg" alt="Placeholder: a woven basket pattern" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src="/photos/culture-craft.jpg" alt="Woven baskets hanging on a wall" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
           <div className="gutter section-y">
             <SectionLabel id="craft-label">A note on images</SectionLabel>

@@ -46,6 +46,7 @@ export const legalNav = [
   { label: "Privacy", href: "/privacy" },
   { label: "Terms", href: "/terms" },
   { label: "Accessibility statement", href: "/accessibility" },
+  { label: "Photo credits", href: "/credits" },
 ] as const;
 
 export const ctaLabel = "Plan Your Journey";

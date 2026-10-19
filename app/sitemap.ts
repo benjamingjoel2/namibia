@@ -5,7 +5,7 @@ import { journeys } from "@/data/journeys";
 import { allPosts } from "@/lib/journal";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/destinations", "/journeys", "/night-sky", "/how-to-travel", "/waterhole-watch", "/cultures", "/our-story", "/journal", "/faq", "/contact", "/privacy", "/terms", "/accessibility"];
+  const pages = ["", "/destinations", "/journeys", "/night-sky", "/how-to-travel", "/waterhole-watch", "/cultures", "/our-story", "/journal", "/faq", "/contact", "/privacy", "/terms", "/accessibility", "/credits"];
   return [
     ...pages.map((p) => ({ url: `${site.url}${p}`, changeFrequency: "monthly" as const, priority: p === "" ? 1 : 0.7 })),
     ...destinations.map((d) => ({ url: `${site.url}/destinations/${d.slug}`, changeFrequency: "monthly" as const, priority: 0.8 })),

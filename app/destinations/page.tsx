@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
   description:
     "Sossusvlei and Deadvlei, the NamibRand, Etosha, the Skeleton Coast, Damaraland, Spitzkoppe, Kaokoland, the Zambezi Region, Fish River Canyon, Lüderitz and the Kalahari: best light, best months and distances.",
   path: "/destinations",
-  image: "/images/hero-destinations.jpg",
+  image: "/photos/hero-destinations.jpg",
 });
 
 export default function DestinationsPage() {
@@ -31,7 +31,7 @@ export default function DestinationsPage() {
         fitText="Where the light falls"
         align="center"
         subtitle="Fourteen places, each with its own hour: when the dunes turn red, when the fog lifts, when the elephants come to drink."
-        img={{ src: "/images/hero-destinations.jpg", alt: "Placeholder: a gravel road leading towards red dunes" }}
+        img={{ src: "/photos/hero-destinations.jpg", alt: "A road winding through the desert" }}
       />
 
       <section aria-label="Introduction" className="section-y bg-band">

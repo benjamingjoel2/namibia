@@ -1,4 +1,4 @@
-// Generates art-directed placeholder photographs into public/images.
+// Generates placeholder team portraits into public/images.
 // Each is a simple layered landscape with a "Placeholder" caption so nobody
 // mistakes it for final photography. Replace any file with a real photo of
 // the same name (any aspect ratio works; components crop with object-fit).
@@ -309,107 +309,13 @@ const L = [2000, 1250];
 const M = [1400, 1000];
 const S = [900, 1100];
 
+// Only the team portraits are still placeholders; photographs live in
+// public/photos (see data/imageCredits.ts).
 const manifest = [
-  ["hero-home-day", "dunes-dawn", "Sossusvlei dunes at dawn", ...L],
-  ["hero-home-night", "milky-way", "Milky Way over the dunes", ...L],
-  ["band-deadvlei-day", "deadvlei", "Deadvlei camelthorns", ...L],
-  ["band-deadvlei-night", "deadvlei-night", "Deadvlei under the stars", ...L],
-  ["cta-day", "dunes-sunset", "Red dunes at sunset", ...L],
-  ["cta-night", "dunes-night", "Night over the dune sea", ...L],
-  ["hero-destinations", "road", "Gravel road towards the dunes", ...L],
-  ["hero-journeys", "dunes-sunset", "Evening light on the dunes", ...L],
-  ["hero-night-sky", "milky-way", "The southern Milky Way", ...L],
-  ["hero-how-to-travel", "road", "4x4 on a gravel road", ...L],
-  ["hero-waterhole", "waterhole", "Etosha waterhole, dry season", ...L],
-  ["hero-waterhole-night", "waterhole-night", "Floodlit waterhole at night", ...L],
-  ["hero-cultures", "mountains", "Hills of the Kunene at dawn", ...L],
-  ["hero-our-story", "dunes-dawn", "First light on the NamibRand", ...L],
-  ["hero-contact", "dunes-sunset", "Dunes at last light", ...L],
-  ["hero-journal", "road", "The road south", ...L],
-  ["hero-faq", "granite", "Granite and evening light", ...L],
-  ["hero-legal", "dunes-dawn", "Quiet dunes", ...L],
-  ["band-night-sky", "dunes-night", "Star-filled sky over the desert", ...L],
-  ["band-etosha", "savanna", "Etosha grassland", ...L],
-  ["band-cultures", "rock", "Ancient rock engravings", ...L],
-
-  // destinations: hero + detail
-  ["dest-sossusvlei", "dunes-dawn", "Sossusvlei", ...L],
-  ["dest-sossusvlei-2", "deadvlei", "Deadvlei", ...M],
-  ["dest-namibrand", "dunes-night", "NamibRand at night", ...L],
-  ["dest-namibrand-2", "camp", "Desert camp", ...M],
-  ["dest-windhoek", "mountains", "Hills around Windhoek", ...L],
-  ["dest-windhoek-2", "lodge", "Guesthouse near Windhoek", ...M],
-  ["dest-swakopmund", "town-coast", "Swakopmund lighthouse", ...L],
-  ["dest-swakopmund-2", "coast-fog", "Walvis Bay lagoon", ...M],
-  ["dest-skeleton-coast", "coast-fog", "Skeleton Coast in fog", ...L],
-  ["dest-skeleton-coast-2", "dunes-sunset", "Dunes meeting the sea", ...M],
-  ["dest-damaraland", "granite", "Damaraland", ...L],
-  ["dest-damaraland-2", "savanna", "Desert-adapted elephants", ...M],
-  ["dest-twyfelfontein", "rock", "Twyfelfontein engravings", ...L],
-  ["dest-twyfelfontein-2", "granite", "Sandstone at Twyfelfontein", ...M],
-  ["dest-spitzkoppe", "granite", "Spitzkoppe", ...L],
-  ["dest-spitzkoppe-2", "milky-way", "Spitzkoppe at night", ...M],
-  ["dest-kaokoland", "mountains", "Kaokoland", ...L],
-  ["dest-kaokoland-2", "river", "Kunene River", ...M],
-  ["dest-etosha", "waterhole", "Etosha waterhole", ...L],
-  ["dest-etosha-2", "waterhole-night", "Floodlit waterhole", ...M],
-  ["dest-zambezi", "river", "Zambezi Region", ...L],
-  ["dest-zambezi-2", "savanna", "Floodplain", ...M],
-  ["dest-fish-river", "canyon", "Fish River Canyon", ...L],
-  ["dest-fish-river-2", "kalahari", "The rim at dusk", ...M],
-  ["dest-luderitz", "ghost-town", "Kolmanskop", ...L],
-  ["dest-luderitz-2", "town-coast", "Lüderitz harbour", ...M],
-  ["dest-kalahari", "kalahari", "Kalahari red dunes", ...L],
-  ["dest-kalahari-2", "savanna", "Kalahari grassland", ...M],
-
-  // journeys
-  ["journey-first-light", "dunes-dawn", "Namibia, First Light", ...L],
-  ["journey-classic-self-drive", "road", "The Classic Self-Drive", ...L],
-  ["journey-skeleton-coast-air", "plane", "Skeleton Coast by Air", ...L],
-  ["journey-dunes-dark-skies", "milky-way", "Dunes & Dark Skies", ...L],
-  ["journey-etosha-zambezi", "river", "Etosha & the Zambezi", ...L],
-  ["journey-deep-south", "canyon", "The Deep South", ...L],
-  ["journey-photographers", "deadvlei", "Photographer's Namibia", ...L],
-  ["journey-kids", "waterhole", "Namibia with Kids", ...L],
-
-  // stays
-  ["stay-1", "camp", "Desert camp", ...M],
-  ["stay-2", "lodge", "Dune lodge", ...M],
-  ["stay-3", "lodge", "Coastal guesthouse", ...M],
-  ["stay-4", "camp", "Coast camp", ...M],
-  ["stay-5", "lodge", "Damaraland lodge", ...M],
-  ["stay-6", "camp", "Kunene camp", ...M],
-  ["stay-7", "lodge", "Etosha lodge", ...M],
-  ["stay-8", "lodge", "River lodge", ...M],
-  ["stay-9", "camp", "Canyon camp", ...M],
-  ["stay-10", "lodge", "Kalahari farm", ...M],
-
-  // home three points
-  ["point-light", "dunes-sunset", "Light", ...M],
-  ["point-space", "camp", "Space", ...M],
-  ["point-honesty", "road", "Honest roads", ...M],
-
-  // team
   ["team-1", "portrait", "Team member", ...S],
   ["team-2", "portrait", "Team member", ...S],
   ["team-3", "portrait", "Team member", ...S],
   ["team-4", "portrait", "Team member", ...S],
-
-  // cultures (no people; landscapes and craft)
-  ["culture-craft", "craft", "Basketry pattern", ...M],
-  ["culture-landscape", "mountains", "Northern landscape", ...M],
-
-  // journal
-  ["journal-sossusvlei", "dunes-dawn", "Sossusvlei at sunrise", ...L],
-  ["journal-self-drive", "road", "Gravel road", ...L],
-  ["journal-namibrand", "milky-way", "NamibRand stars", ...L],
-  ["journal-etosha", "waterhole-green", "Etosha in the green season", ...L],
-
-  // misc
-  ["style-self-drive", "road", "Self-drive", ...M],
-  ["style-guided", "savanna", "Guided", ...M],
-  ["style-fly-in", "plane", "Fly-in", ...M],
-  ["og-default", "dunes-dawn", "Namib Light", 1200, 630],
 ];
 
 let made = 0;

@@ -11,14 +11,14 @@ export const metadata = pageMetadata({
   title: "Journal",
   description: "Notes from the road: timing sunrise at Sossusvlei, an honest guide to self-drive, stargazing in the NamibRand, and Etosha by season.",
   path: "/journal",
-  image: "/images/hero-journal.jpg",
+  image: "/photos/hero-journal.jpg",
 });
 
 export default function JournalPage() {
   const posts = allPosts();
   return (
     <>
-      <PageHero size="short" title="Journal" subtitle="Notes from the road, written to be useful." img={{ src: "/images/hero-journal.jpg", alt: "Placeholder: the road south" }} />
+      <PageHero size="short" title="Journal" subtitle="Notes from the road, written to be useful." img={{ src: "/photos/hero-journal.jpg", alt: "A gravel road through the hills" }} />
       <section aria-labelledby="posts" className="section-y bg-bg">
         <h2 id="posts" className="sr-only">
           Posts

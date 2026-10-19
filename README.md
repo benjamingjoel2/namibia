@@ -41,7 +41,9 @@ Each journey day in `data/journeys.ts` has `distanceKm`, `gravelKm` (tarmac is t
 
 ### Images
 
-All photographs are generated placeholders, captioned "PLACEHOLDER". Replace any file in `public/images/` with a real photo of the same name; any aspect ratio works. Update the `alt` text in `/data` at the same time. Images with a `srcNight` show that version in night mode. To regenerate the placeholders: `npm run placeholders` (add `--force` to overwrite).
+Photographs are from Unsplash (Unsplash License), self-hosted in `public/photos/`; photographers are listed in `data/imageCredits.ts` and on `/credits`. To swap a photo, add it under a **new** file name (image caches are keyed on the URL, so reusing a name can keep serving the old picture), then update the path and `alt` text in `/data` and the entry in `data/imageCredits.ts`. Images with a `srcNight` show that version in night mode.
+
+Photos live in `public/photos/`. Team portraits (`public/images/team-*.jpg`) are still generated placeholders; `npm run placeholders` regenerates only those.
 
 ## Before launch
 
@@ -50,6 +52,7 @@ Search the code for `PLACEHOLDER` and `verify`. In particular:
 - **Entry requirements** (FAQ): visa rules changed recently. Verify against official Namibian government sources.
 - **Malaria, park fees, seasons, sky notes**: each is marked *verify* on the page.
 - **Cultures of Namibia**: have it reviewed with community representatives; replace placeholder partners.
+- **Team portraits**: placeholders; use real, consented photos of the actual team.
 - **Testimonials**: placeholders. Add real, consented quotes; names only with permission.
 - **Team, stays, address, phone, NTB registration, legal pages**: placeholders.
 - **Exchange rates** in `config/currency.ts` are indicative.

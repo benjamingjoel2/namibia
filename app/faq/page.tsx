@@ -9,7 +9,7 @@ export const metadata = pageMetadata({
   title: "FAQ: travelling in Namibia",
   description: "Entry requirements, self-drive safety, gravel roads, driving on the left, 4x4s and rooftop tents, fuel, malaria, best time to visit, park fees, money, tipping and travelling with children.",
   path: "/faq",
-  image: "/images/hero-faq.jpg",
+  image: "/photos/hero-faq.jpg",
 });
 
 const order: FaqItem["category"][] = ["Before you go", "On the road", "Health & safety", "Money", "Booking"];
@@ -23,7 +23,7 @@ export default function FaqPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PageHero size="short" title="Questions" subtitle="Practical, honest answers. Where rules change, we say so." img={{ src: "/images/hero-faq.jpg", alt: "Placeholder: granite hills in evening light" }} />
+      <PageHero size="short" title="Questions" subtitle="Practical, honest answers. Where rules change, we say so." img={{ src: "/photos/hero-faq.jpg", alt: "Spitzkoppe at sunset, seen through a rock arch" }} />
 
       <div className="section-y bg-bg">
         <div className="gutter grid gap-12 lg:grid-cols-[16rem_1fr]">

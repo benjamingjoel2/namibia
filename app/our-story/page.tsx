@@ -10,7 +10,7 @@ export const metadata = pageMetadata({
   title: "Our Story",
   description: "Why Namib Light exists, who plans your journey, and how we travel: privately, honestly, with local communities, and with the lights off.",
   path: "/our-story",
-  image: "/images/hero-our-story.jpg",
+  image: "/photos/hero-our-story.jpg",
 });
 
 const commitments = [
@@ -25,7 +25,7 @@ export default function OurStoryPage() {
       <PageHero
         title="Space and silence"
         subtitle="We started Namib Light to share the Namibia we love: wide, quiet and best at the edges of the day."
-        img={{ src: "/images/hero-our-story.jpg", alt: "Placeholder: first light on dunes in the NamibRand" }}
+        img={{ src: "/photos/hero-our-story.jpg", alt: "Sunlit dune crests" }}
         titleSize="clamp(2.6rem,7.9vw,8.4rem)"
       />
 

@@ -15,7 +15,7 @@ export const metadata = pageMetadata({
   description:
     "An honest comparison of self-drive, guided and fly-in travel in Namibia, a short quiz to choose, and day-by-day route planners with gravel, tarmac, fuel and driving times.",
   path: "/how-to-travel",
-  image: "/images/hero-how-to-travel.jpg",
+  image: "/photos/hero-how-to-travel.jpg",
 });
 
 const roadTruths = [
@@ -34,7 +34,7 @@ export default function HowToTravelPage() {
       <PageHero
         title="How to travel"
         subtitle="Namibia is famous for self-drive, but it isn't for everyone. Here's the honest version, and a quick way to choose."
-        img={{ src: "/images/hero-how-to-travel.jpg", alt: "Placeholder: a 4x4 on a long gravel road towards dunes" }}
+        img={{ src: "/photos/hero-how-to-travel.jpg", alt: "A 4x4 with a rooftop tent under storm clouds" }}
       />
 
       <section aria-labelledby="intro-label" className="section-y bg-bg">

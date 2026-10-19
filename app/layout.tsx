@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: site.locale,
-    images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Namib Light: dunes at first light" }],
+    images: [{ url: "/photos/og-default.jpg", width: 1200, height: 630, alt: "Namib Light: dunes at first light" }],
   },
   twitter: { card: "summary_large_image" },
   icons: { icon: "/icon.svg" },

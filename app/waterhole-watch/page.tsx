@@ -14,7 +14,7 @@ export const metadata = pageMetadata({
   description:
     "What to expect in Etosha National Park each month: the dry season at the waterholes, the green season's birds and newborns, and the floodlit waterholes at night.",
   path: "/waterhole-watch",
-  image: "/images/hero-waterhole.jpg",
+  image: "/photos/hero-waterhole.jpg",
 });
 
 const tips = [
@@ -34,10 +34,10 @@ export default function WaterholeWatchPage() {
         title="Waterhole watch"
         subtitle="In the dry season, Etosha's animals come to the water. You just need to sit still long enough."
         img={{
-          src: "/images/hero-waterhole.jpg",
-          alt: "Placeholder: elephants, giraffe and springbok at an Etosha waterhole",
-          srcNight: "/images/hero-waterhole-night.jpg",
-          altNight: "Placeholder: elephants at a floodlit waterhole at night",
+          src: "/photos/hero-waterhole.jpg",
+          alt: "Zebras drinking at an Etosha waterhole",
+          srcNight: "/photos/hero-waterhole-night.jpg",
+          altNight: "Elephants at dusk",
         }}
       />
 
@@ -64,10 +64,10 @@ export default function WaterholeWatchPage() {
 
       <ParallaxBand
         img={{
-          src: "/images/band-etosha.jpg",
-          alt: "Placeholder: open grassland with giraffe and acacia",
-          srcNight: "/images/hero-waterhole-night.jpg",
-          altNight: "Placeholder: a floodlit waterhole at night",
+          src: "/photos/band-etosha.jpg",
+          alt: "A lone tree on the edge of the Etosha pan",
+          srcNight: "/photos/hero-waterhole-night.jpg",
+          altNight: "Elephants at dusk",
         }}
       />
 
@@ -87,7 +87,7 @@ export default function WaterholeWatchPage() {
             </div>
           </div>
           <div className="relative min-h-[22rem]">
-            <Image src="/images/hero-waterhole-night.jpg" alt="Placeholder: elephants drinking under floodlights" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src="/photos/hero-waterhole-night.jpg" alt="Elephants gathering at dusk" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
         </div>
       </section>

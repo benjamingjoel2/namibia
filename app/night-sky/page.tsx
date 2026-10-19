@@ -17,7 +17,7 @@ export const metadata = pageMetadata({
   description:
     "Why Namibia's skies are among the darkest on Earth, the NamibRand International Dark Sky Reserve, what's up in the southern sky each month, and a moon-phase planner for any date.",
   path: "/night-sky",
-  image: "/images/hero-night-sky.jpg",
+  image: "/photos/hero-night-sky.jpg",
 });
 
 export default function NightSkyPage() {
@@ -31,7 +31,7 @@ export default function NightSkyPage() {
       <PageHero
         title="After dark"
         subtitle="Turn off the lights. Namibia's best show starts after dinner."
-        img={{ src: "/images/hero-night-sky.jpg", alt: "Placeholder: the southern Milky Way over a dune and a camelthorn tree" }}
+        img={{ src: "/photos/hero-night-sky.jpg", alt: "The Milky Way over a rock outcrop" }}
       />
 
       <section aria-labelledby="why-label" className="section-y bg-bg">
@@ -72,7 +72,7 @@ export default function NightSkyPage() {
             </div>
           </div>
           <div className="relative min-h-[26rem]">
-            <Image src="/images/dest-namibrand.jpg" alt="Placeholder: stars over dunes in the NamibRand" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
+            <Image src="/photos/dest-namibrand.jpg" alt="Stars over dunes in the NamibRand" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
           </div>
         </div>
       </section>
@@ -87,7 +87,7 @@ export default function NightSkyPage() {
         </div>
       </section>
 
-      <ParallaxBand img={{ src: "/images/band-night-sky.jpg", alt: "Placeholder: a star-filled sky above the desert" }} />
+      <ParallaxBand img={{ src: "/photos/band-night-sky.jpg", alt: "The Milky Way over a quiver tree" }} />
 
       <section aria-labelledby="moon-label" id="moon" className="section-y bg-bg-alt">
         <div className="gutter">

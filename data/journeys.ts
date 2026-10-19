@@ -32,7 +32,7 @@ export const journeys: Journey[] = [
     summary: "Sossusvlei, Swakopmund, Damaraland and Etosha: the great loop, timed for the light.",
     intro:
       "Our signature first journey. Dawn on the dunes, a cool breath of the coast, elephants in Damaraland's riverbeds and three nights around Etosha's waterholes. Twelve days, with no single drive over six hours until the last.",
-    hero: { src: "/images/journey-first-light.jpg", alt: "Placeholder: dunes at first light" },
+    hero: { src: "/photos/journey-first-light.jpg", alt: "A red dune crest at first light" },
     bestMonths: [4, 5, 6, 7, 8, 9, 10],
     destinationSlugs: ["windhoek", "sossusvlei", "swakopmund", "damaraland", "twyfelfontein", "etosha"],
     tags: ["photography", "wildlife", "desert", "stars"],
@@ -136,7 +136,7 @@ export const journeys: Journey[] = [
     summary: "Two weeks at your own pace: Kalahari, dunes, coast, granite, elephants and Etosha.",
     intro:
       "For confident drivers who want time. Fourteen days, a 4x4 with a rooftop tent or lodge nights, and a route with breathing room: no driving day over five and a half hours on gravel.",
-    hero: { src: "/images/journey-classic-self-drive.jpg", alt: "Placeholder: a 4x4 on a gravel road" },
+    hero: { src: "/photos/journey-classic-self-drive.jpg", alt: "A gravel road leading to Spitzkoppe" },
     bestMonths: [4, 5, 6, 7, 8, 9, 10],
     destinationSlugs: ["windhoek", "kalahari", "sossusvlei", "swakopmund", "spitzkoppe", "damaraland", "etosha"],
     tags: ["desert", "wildlife", "stars", "walking"],
@@ -213,7 +213,7 @@ export const journeys: Journey[] = [
     summary: "Dunes, a fogbound coast and the Kunene River, linked by light aircraft.",
     intro:
       "Eight days, with no gravel roads at all. Small planes carry you from the dunes to the far north coast and on to the Kunene. The flights are part of the journey: the shipwrecks and the dune sea are best seen from above.",
-    hero: { src: "/images/journey-skeleton-coast-air.jpg", alt: "Placeholder: a light aircraft over the desert" },
+    hero: { src: "/photos/journey-skeleton-coast-air.jpg", alt: "An aerial view of the beach and surf on the Skeleton Coast" },
     bestMonths: [9, 10, 11, 12, 1, 2, 3, 4, 5],
     destinationSlugs: ["windhoek", "namibrand", "sossusvlei", "skeleton-coast", "kaokoland"],
     tags: ["photography", "desert", "stars"],
@@ -266,7 +266,7 @@ export const journeys: Journey[] = [
     summary: "A week in the NamibRand and Sossusvlei, planned around the new moon.",
     intro:
       "Seven days, three of them in an International Dark Sky Reserve. We set the dates around the new moon, add a night-sky guide and a telescope, and leave the days for slow walks and sunrise on the dunes.",
-    hero: { src: "/images/journey-dunes-dark-skies.jpg", alt: "Placeholder: the Milky Way over a dune and a camelthorn tree" },
+    hero: { src: "/photos/journey-dunes-dark-skies.jpg", alt: "The Milky Way over the desert" },
     bestMonths: [4, 5, 6, 7, 8, 9],
     destinationSlugs: ["windhoek", "namibrand", "sossusvlei"],
     tags: ["stars", "desert", "photography", "walking"],
@@ -322,7 +322,7 @@ export const journeys: Journey[] = [
     summary: "From the white pan to green rivers: the wildlife journey.",
     intro:
       "Twelve days for wildlife. Four nights around Etosha's waterholes, then east along the rivers of the Kavango and Zambezi Region for boats, hippo, buffalo and hundreds of birds. Almost all of it is on tarmac.",
-    hero: { src: "/images/journey-etosha-zambezi.jpg", alt: "Placeholder: a river winding through floodplain" },
+    hero: { src: "/photos/journey-etosha-zambezi.jpg", alt: "Elephants on a river bank" },
     bestMonths: [5, 6, 7, 8, 9, 10],
     destinationSlugs: ["windhoek", "etosha", "zambezi"],
     tags: ["wildlife", "photography"],
@@ -374,7 +374,7 @@ export const journeys: Journey[] = [
     summary: "Kalahari, canyon, ghost town, wild horses and the NamibRand.",
     intro:
       "Ten days in the quiet south, where few travellers go. Red Kalahari grass, the scale of Fish River Canyon, a diamond town full of sand, and a long scenic drive north to the dark skies of the NamibRand.",
-    hero: { src: "/images/journey-deep-south.jpg", alt: "Placeholder: Fish River Canyon at dusk" },
+    hero: { src: "/photos/journey-deep-south.jpg", alt: "Fish River Canyon at dusk" },
     bestMonths: [4, 5, 6, 7, 8, 9],
     destinationSlugs: ["windhoek", "kalahari", "fish-river-canyon", "luderitz", "namibrand", "sossusvlei"],
     tags: ["desert", "photography", "walking", "stars"],
@@ -431,7 +431,7 @@ export const journeys: Journey[] = [
     summary: "Every sunrise and sunset in the right place, with time to go back.",
     intro:
       "Twelve days built backwards from the light. Two dawns at Deadvlei, guided access to Sandwich Harbour, the Spitzkoppe arch under the Milky Way, Damaraland's elephants and Etosha's floodlit waterholes. Dates are planned around the new moon.",
-    hero: { src: "/images/journey-photographers.jpg", alt: "Placeholder: Deadvlei's trees against red dunes" },
+    hero: { src: "/photos/journey-photographers.jpg", alt: "A dead camelthorn tree in Deadvlei" },
     bestMonths: [5, 6, 7, 8, 9],
     destinationSlugs: ["windhoek", "sossusvlei", "swakopmund", "spitzkoppe", "damaraland", "etosha"],
     tags: ["photography", "stars", "wildlife", "desert"],
@@ -498,7 +498,7 @@ export const journeys: Journey[] = [
     summary: "Short drives, pools, dunes to run down, and animals at the water.",
     intro:
       "Thirteen days with no driving day over six hours, and most under five. A pool most afternoons, dunes to run down, a boat with dolphins and seals, and Etosha's waterholes, where small children can see a lot without getting out of the car.",
-    hero: { src: "/images/journey-kids.jpg", alt: "Placeholder: animals at a waterhole" },
+    hero: { src: "/photos/journey-kids.jpg", alt: "Giraffe at a waterhole in Etosha" },
     bestMonths: [4, 5, 6, 7, 8, 9, 10],
     destinationSlugs: ["windhoek", "kalahari", "sossusvlei", "swakopmund", "etosha"],
     tags: ["family", "wildlife", "desert", "stars"],

@@ -5,10 +5,10 @@ import { ParallaxImage } from "./Parallax";
 import { Reveal } from "./Reveal";
 
 const defaultImg: Img = {
-  src: "/images/cta-day.jpg",
-  srcNight: "/images/cta-night.jpg",
-  alt: "Placeholder: low sun over red dunes, long shadows in the valleys",
-  altNight: "Placeholder: the Milky Way arching over a dune crest",
+  src: "/photos/cta-day.jpg",
+  srcNight: "/photos/cta-night.jpg",
+  alt: "Red dunes in low light, long shadows in the valleys",
+  altNight: "The Milky Way over the desert",
 };
 
 /** Full-width call to action: a centred card over a drifting photograph. */

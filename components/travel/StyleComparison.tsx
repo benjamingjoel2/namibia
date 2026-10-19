@@ -22,7 +22,7 @@ export function StyleComparison() {
           <h3 className="mt-4 text-[1.55rem] leading-tight">{p.name}</h3>
           <p className="mt-1 text-muted">{p.oneLine}</p>
           <div className="relative mt-6 aspect-[1.27] overflow-hidden">
-            <Image src={`/images/style-${p.style}.jpg`} alt={`Placeholder: ${p.name.toLowerCase()} travel`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+            <Image src={`/photos/style-${p.style}.jpg`} alt={`${p.name} travel in Namibia`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
           </div>
           <dl className="mt-6 space-y-4 text-[0.98rem]">
             <div>

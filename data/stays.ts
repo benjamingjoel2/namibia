@@ -8,7 +8,7 @@ export const stays: Stay[] = [
     destinationSlug: "windhoek",
     type: "lodge",
     blurb: "A quiet guesthouse on the city's edge with a garden, an early breakfast and secure parking for your car.",
-    image: { src: "/images/stay-3.jpg", alt: "Placeholder: guesthouse terrace" },
+    image: { src: "/photos/stay-3.jpg", alt: "A lodge above a river" },
   },
   {
     id: "red-sands",
@@ -16,7 +16,7 @@ export const stays: Stay[] = [
     destinationSlug: "sossusvlei",
     type: "lodge",
     blurb: "Inside the park gate, so you can be on the dunes before the day visitors arrive.",
-    image: { src: "/images/stay-2.jpg", alt: "Placeholder: lodge at the foot of the dunes" },
+    image: { src: "/photos/stay-2.jpg", alt: "A lodge terrace in the desert" },
   },
   {
     id: "dune-edge",
@@ -24,7 +24,7 @@ export const stays: Stay[] = [
     destinationSlug: "namibrand",
     type: "luxury-camp",
     blurb: "Eight tents on a dune crest in the NamibRand, with a roll-back roof for sleeping under the stars.",
-    image: { src: "/images/stay-1.jpg", alt: "Placeholder: tented camp on a dune at dusk" },
+    image: { src: "/photos/stay-1.jpg", alt: "A tented chalet in the desert" },
     darkSky: true,
   },
   {
@@ -33,7 +33,7 @@ export const stays: Stay[] = [
     destinationSlug: "swakopmund",
     type: "lodge",
     blurb: "A short walk from the sea and the cafés. Thick walls, warm rooms, and a fire on foggy evenings.",
-    image: { src: "/images/stay-3.jpg", alt: "Placeholder: coastal guesthouse" },
+    image: { src: "/photos/stay-3.jpg", alt: "A lodge above a river" },
   },
   {
     id: "shipwreck-camp",
@@ -41,7 +41,7 @@ export const stays: Stay[] = [
     destinationSlug: "skeleton-coast",
     type: "luxury-camp",
     blurb: "A remote fly-in camp in the northern wilderness, run with the local conservancy.",
-    image: { src: "/images/stay-4.jpg", alt: "Placeholder: camp in a remote valley" },
+    image: { src: "/photos/stay-4.jpg", alt: "A tented chalet on a desert plain" },
     darkSky: true,
   },
   {
@@ -50,7 +50,7 @@ export const stays: Stay[] = [
     destinationSlug: "damaraland",
     type: "lodge",
     blurb: "Chalets tucked into the boulders, on a community conservancy that shares in every night's income.",
-    image: { src: "/images/stay-5.jpg", alt: "Placeholder: lodge among granite boulders" },
+    image: { src: "/photos/stay-5.jpg", alt: "Daybeds among red rocks" },
     darkSky: true,
   },
   {
@@ -59,7 +59,7 @@ export const stays: Stay[] = [
     destinationSlug: "kaokoland",
     type: "camping",
     blurb: "Shaded pitches under palms on the river, with simple en-suite tents as an option.",
-    image: { src: "/images/stay-6.jpg", alt: "Placeholder: tent beside a river" },
+    image: { src: "/photos/stay-6.jpg", alt: "Thatched huts beside a river" },
   },
   {
     id: "pans-edge",
@@ -67,7 +67,7 @@ export const stays: Stay[] = [
     destinationSlug: "etosha",
     type: "lodge",
     blurb: "Just outside the gate, with its own floodlit waterhole a few steps from the bar.",
-    image: { src: "/images/stay-7.jpg", alt: "Placeholder: lodge near Etosha" },
+    image: { src: "/photos/stay-7.jpg", alt: "A lodge with a giraffe sculpture" },
     floodlitWaterhole: true,
   },
   {
@@ -76,7 +76,7 @@ export const stays: Stay[] = [
     destinationSlug: "zambezi",
     type: "lodge",
     blurb: "Raised rooms over the floodplain. Boat trips leave from the deck.",
-    image: { src: "/images/stay-8.jpg", alt: "Placeholder: lodge on a river" },
+    image: { src: "/photos/stay-8.jpg", alt: "A tented lodge in the desert" },
   },
   {
     id: "canyon-rim",
@@ -84,7 +84,7 @@ export const stays: Stay[] = [
     destinationSlug: "fish-river-canyon",
     type: "camping",
     blurb: "A small camp near the rim, with a short walk to a private viewpoint at sunset.",
-    image: { src: "/images/stay-9.jpg", alt: "Placeholder: camp near the canyon rim" },
+    image: { src: "/photos/stay-9.jpg", alt: "A tented lodge on rocky ground" },
     darkSky: true,
   },
   {
@@ -93,7 +93,7 @@ export const stays: Stay[] = [
     destinationSlug: "luderitz",
     type: "lodge",
     blurb: "An old house above the harbour with views of the bay, and oysters nearby.",
-    image: { src: "/images/stay-3.jpg", alt: "Placeholder: house above a harbour" },
+    image: { src: "/photos/stay-3.jpg", alt: "A lodge above a river" },
   },
   {
     id: "red-grass",
@@ -101,7 +101,7 @@ export const stays: Stay[] = [
     destinationSlug: "kalahari",
     type: "lodge",
     blurb: "A family-run farm lodge among the red dunes. Sundowners on the crest, dinner around one table.",
-    image: { src: "/images/stay-10.jpg", alt: "Placeholder: farm lodge in the Kalahari" },
+    image: { src: "/photos/stay-10.jpg", alt: "A campfire at a lodge among the rocks" },
   },
 ];
 

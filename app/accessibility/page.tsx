@@ -20,7 +20,7 @@ export default function AccessibilityPage() {
       </ul>
       <h2>Known limitations</h2>
       <ul>
-        <li>Photographs are currently placeholders. Final images will be checked for alt text when they&rsquo;re added.</li>
+        <li>Team portraits are still placeholders; their descriptions will be updated when real photos are added.</li>
         <li>PLACEHOLDER: results of an independent audit.</li>
       </ul>
       <h2>Tell us</h2>

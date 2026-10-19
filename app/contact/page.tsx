@@ -7,7 +7,7 @@ export const metadata = pageMetadata({
   title: "Plan your journey",
   description: "Tell us when you'd like to travel, how you like to move and what you'd love to see. A planner will reply, usually within a day.",
   path: "/contact",
-  image: "/images/hero-contact.jpg",
+  image: "/photos/hero-contact.jpg",
 });
 
 export default function ContactPage() {
@@ -17,10 +17,10 @@ export default function ContactPage() {
         <div className="absolute inset-x-0 top-0 -z-10 h-[46rem] bg-deep">
           <ThemedImage
             img={{
-              src: "/images/hero-contact.jpg",
-              alt: "Placeholder: dunes at last light",
-              srcNight: "/images/cta-night.jpg",
-              altNight: "Placeholder: night over the dune sea",
+              src: "/photos/hero-contact.jpg",
+              alt: "The sun setting over the desert",
+              srcNight: "/photos/cta-night.jpg",
+              altNight: "The Milky Way over the desert",
             }}
             sizes="100vw"
             priority

@@ -29,10 +29,10 @@ export default function Home() {
         title="Follow the light"
         subtitle="Private journeys through Namibia, timed for sunrise, sunset and the stars. Drive yourself, travel with a guide, or fly between remote camps."
         img={{
-          src: "/images/hero-home-day.jpg",
-          alt: "Placeholder: Sossusvlei's dunes at dawn, half in shadow and half lit apricot",
-          srcNight: "/images/hero-home-night.jpg",
-          altNight: "Placeholder: the Milky Way rising over a dune crest",
+          src: "/photos/hero-home-day.jpg",
+          alt: "A tall dune at Sossusvlei, half in shadow and half lit orange",
+          srcNight: "/photos/hero-home-night.jpg",
+          altNight: "The Milky Way over the desert",
         }}
         titleSize="clamp(2.9rem,8.1vw,8.6rem)" titleClass="md:whitespace-nowrap"
       >
@@ -59,10 +59,10 @@ export default function Home() {
 
       <ParallaxBand
         img={{
-          src: "/images/band-deadvlei-day.jpg",
-          alt: "Placeholder: dead camelthorn trees on a white clay pan below red dunes",
-          srcNight: "/images/band-deadvlei-night.jpg",
-          altNight: "Placeholder: Deadvlei's trees under a sky full of stars",
+          src: "/photos/band-deadvlei-day.jpg",
+          alt: "Dead camelthorn trees on a white clay pan below red dunes",
+          srcNight: "/photos/band-deadvlei-night.jpg",
+          altNight: "Deadvlei's trees under a sky full of stars",
         }}
       />
 

@@ -213,8 +213,8 @@ export const destinations: Destination[] = [
     hero: {
       src: "/photos/dest-etosha.jpg",
       alt: "Springbok, zebra and oryx at an Etosha waterhole",
-      srcNight: "/photos/hero-waterhole-night.jpg",
-      altNight: "Elephants gathering at dusk",
+      srcNight: "/photos/etosha-waterhole-dusk.jpg",
+      altNight: "Two elephants at a waterhole just after sunset",
     },
     detail: { src: "/photos/dest-etosha-2.jpg", alt: "An elephant drinking at an Etosha waterhole" },
     bestLight: {

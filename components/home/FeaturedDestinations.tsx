@@ -14,7 +14,7 @@ export function FeaturedDestinations({ items }: { items: Destination[] }) {
     <section aria-labelledby="dest-label" className="section-y relative bg-bg-alt text-fg">
       <div className="gutter">
         <SectionLabel id="dest-label">Where the light falls</SectionLabel>
-        <p className="mt-6 max-w-[28rem]">Three places that change by the hour, and where we'll make sure you are when they do.</p>
+        <p className="mt-6 max-w-[28rem]">Three places that change by the hour, and where we&rsquo;ll make sure you are when they do.</p>
 
         <div className="mt-16 md:mt-24">
           {items.map((d, i) => (

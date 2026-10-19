@@ -53,7 +53,7 @@ export function DashedRule({ className = "" }: { className?: string }) {
 
 export function VerifyTag({ children = "verify" }: { children?: React.ReactNode }) {
   return (
-    <span className="ml-1.5 inline-block rounded-full border border-accent px-2 py-px align-middle font-sans text-[0.7rem] font-medium uppercase tracking-[0.08em] text-accent">
+    <span className="verify-tag ml-1.5 inline-block rounded-full border border-accent px-2 py-px align-middle font-sans text-[0.7rem] font-medium uppercase tracking-[0.08em] text-accent">
       {children}
     </span>
   );

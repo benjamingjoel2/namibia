@@ -33,6 +33,7 @@ export default function CulturesPage() {
             Namibia
           </>
         }
+        fitText="Cultures of Namibia"
         subtitle="Many peoples, many languages, one country. Here's how we visit, and why we avoid some of what's on offer."
         img={{ src: "/images/hero-cultures.jpg", alt: "Placeholder: the hills of the Kunene at dawn" }}
       />

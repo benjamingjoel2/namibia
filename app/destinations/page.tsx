@@ -28,6 +28,7 @@ export default function DestinationsPage() {
             light falls
           </>
         }
+        fitText="Where the light falls"
         align="center"
         subtitle="Fourteen places, each with its own hour: when the dunes turn red, when the fog lifts, when the elephants come to drink."
         img={{ src: "/images/hero-destinations.jpg", alt: "Placeholder: a gravel road leading towards red dunes" }}
@@ -51,7 +52,7 @@ export default function DestinationsPage() {
               <DashedRule />
               <Reveal className="pb-16 pt-4 md:pb-24">
                 <Num n={i + 1} />
-                <Link href={`/destinations/${d.slug}`} className="relative mt-4 block aspect-[2.75] min-h-[14rem] overflow-hidden" tabIndex={-1} aria-hidden>
+                <Link href={`/destinations/${d.slug}`} className="relative mt-4 block aspect-[1.4] overflow-hidden md:aspect-[2.75]" tabIndex={-1} aria-hidden>
                   <Image src={d.hero.src} alt="" fill sizes="100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-[1.02]" />
                 </Link>
                 <div className="mt-6 grid gap-6 md:grid-cols-2">

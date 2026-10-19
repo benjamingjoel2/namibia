@@ -41,7 +41,7 @@ export default async function JourneyPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(journeyJsonLd(j)) }} />
-      <PageHero title={j.title} subtitle={j.summary} img={j.hero} titleClass="text-[clamp(2.4rem,6.6vw,6.6rem)]">
+      <PageHero title={j.title} subtitle={j.summary} img={j.hero} titleSize="clamp(2.4rem,6.6vw,6.6rem)">
         <ArrowButton href={`/contact?journey=${j.slug}`} tone="light">
           {ctaLabel}
         </ArrowButton>

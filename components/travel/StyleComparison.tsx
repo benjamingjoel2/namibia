@@ -4,7 +4,7 @@ import { Num } from "@/components/ui/Section";
 import { styleProfiles } from "@/data/travelStyles";
 
 const cost = (n: 1 | 2 | 3) => (
-  <span aria-label={["", "Lowest cost", "Mid cost", "Highest cost"][n]}>
+  <span role="img" aria-label={["", "Lowest cost", "Mid cost", "Highest cost"][n]}>
     <span aria-hidden>
       {"$".repeat(n)}
       <span className="opacity-30">{"$".repeat(3 - n)}</span>

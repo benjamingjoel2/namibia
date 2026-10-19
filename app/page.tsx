@@ -34,7 +34,7 @@ export default function Home() {
           srcNight: "/images/hero-home-night.jpg",
           altNight: "Placeholder: the Milky Way rising over a dune crest",
         }}
-        titleClass="text-[clamp(2.9rem,8.1vw,8.6rem)] md:whitespace-nowrap"
+        titleSize="clamp(2.9rem,8.1vw,8.6rem)" titleClass="md:whitespace-nowrap"
       >
         <ArrowButton href="/contact" tone="light">
           {ctaLabel}

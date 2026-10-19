@@ -54,7 +54,7 @@ export default async function PostPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PageHero size="short" title={meta.title} img={{ src: meta.hero, alt: meta.heroAlt }} titleClass="text-[clamp(2rem,4.6vw,4.6rem)] !leading-[0.95]">
+      <PageHero size="short" title={meta.title} img={{ src: meta.hero, alt: meta.heroAlt }} titleSize="clamp(2rem,4.6vw,4.6rem)" titleClass="!leading-[0.95]">
         <p className="text-sm">
           <time dateTime={meta.date}>{formatDate(meta.date)}</time> · {readingMinutes(content)} min read
         </p>

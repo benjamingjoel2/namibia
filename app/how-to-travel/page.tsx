@@ -32,7 +32,7 @@ export default function HowToTravelPage() {
   return (
     <>
       <PageHero
-        title={<>How to travel</>}
+        title="How to travel"
         subtitle="Namibia is famous for self-drive, but it isn't for everyone. Here's the honest version, and a quick way to choose."
         img={{ src: "/images/hero-how-to-travel.jpg", alt: "Placeholder: a 4x4 on a long gravel road towards dunes" }}
       />

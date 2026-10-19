@@ -26,7 +26,7 @@ export default function OurStoryPage() {
         title="Space and silence"
         subtitle="We started Namib Light to share the Namibia we love: wide, quiet and best at the edges of the day."
         img={{ src: "/images/hero-our-story.jpg", alt: "Placeholder: first light on dunes in the NamibRand" }}
-        titleClass="text-[clamp(2.6rem,7.9vw,8.4rem)]"
+        titleSize="clamp(2.6rem,7.9vw,8.4rem)"
       />
 
       <section aria-label="Our purpose" className="section-y bg-bg">

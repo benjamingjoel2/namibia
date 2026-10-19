@@ -4,7 +4,7 @@ import { PlaceholderTag } from "./Section";
 export function LegalPage({ title, updated, placeholder = true, children }: { title: string; updated: string; placeholder?: boolean; children: React.ReactNode }) {
   return (
     <>
-      <PageHero size="short" title={title} img={{ src: "/images/hero-legal.jpg", alt: "Placeholder: quiet dunes at dawn" }} titleClass="text-[clamp(2.4rem,6.4vw,6.4rem)]" />
+      <PageHero size="short" title={title} img={{ src: "/images/hero-legal.jpg", alt: "Placeholder: quiet dunes at dawn" }} titleSize="clamp(2.4rem,6.4vw,6.4rem)" />
       <article className="section-y bg-bg">
         <div className="gutter">
           <div className="mx-auto max-w-[44rem]">

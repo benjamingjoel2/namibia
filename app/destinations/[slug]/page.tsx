@@ -37,7 +37,7 @@ export default async function DestinationPage({ params }: Props) {
 
   return (
     <>
-      <PageHero title={d.name.split(",")[0]} subtitle={d.tagline} img={d.hero} titleClass="text-[clamp(2.6rem,7.6vw,7.6rem)]" />
+      <PageHero title={d.name.split(",")[0]} subtitle={d.tagline} img={d.hero} titleSize="clamp(2.6rem,7.6vw,7.6rem)" />
 
       <nav aria-label="Breadcrumb" className="gutter bg-bg pt-6 text-sm text-muted">
         <ol className="flex gap-2">
@@ -173,8 +173,12 @@ export default async function DestinationPage({ params }: Props) {
 function LightItem({ n, title, text }: { n: number; title: string; text: string }) {
   return (
     <div>
-      <Num n={n} />
-      <dt className="mt-3 text-[1.55rem]">{title}</dt>
+      <dt className="text-[1.55rem]">
+        <span className="block">
+          <Num n={n} />
+        </span>
+        <span className="mt-3 block">{title}</span>
+      </dt>
       <dd className="mt-3 max-w-[26rem]">{text}</dd>
     </div>
   );

@@ -9,9 +9,22 @@ type Props = {
   align?: "left" | "center";
   children?: React.ReactNode;
   size?: "full" | "short";
-  /** Font size for the giant heading. Tune so the longest line fills the width. */
+  /** CSS font size for the giant heading. Tune so the longest line fills the width on desktop. */
+  titleSize?: string;
+  /** Extra classes for the heading. */
   titleClass?: string;
+  /** Text used to size the heading when `title` isn't a plain string. */
+  fitText?: string;
 };
+
+/**
+ * Cap the size so the longest single word always fits the screen width.
+ * Wide caps run about 0.86em per character; 0.9 leaves a little air.
+ */
+function fitSize(size: string, text: string) {
+  const longest = Math.max(4, ...text.split(/\s+/).map((w) => w.length));
+  return `min(${size}, calc((100vw - 2.6rem) / ${(longest * 0.9).toFixed(2)}))`;
+}
 
 /** Full-bleed photograph with a giant caps heading across the top. */
 export function PageHero({
@@ -21,8 +34,11 @@ export function PageHero({
   align = "left",
   children,
   size = "full",
-  titleClass = "text-[clamp(2.9rem,9.2vw,8.6rem)]",
+  titleSize = "clamp(2.9rem,9.2vw,8.6rem)",
+  titleClass = "",
+  fitText,
 }: Props) {
+  const text = fitText ?? (typeof title === "string" ? title : "");
   return (
     <section
       className={`relative isolate flex flex-col overflow-hidden bg-deep text-[#f5f0e8] ${
@@ -34,10 +50,13 @@ export function PageHero({
         aria-hidden
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(20_16_12/0.48)_0%,rgb(20_16_12/0.12)_38%,rgb(20_16_12/0.18)_62%,rgb(20_16_12/0.6)_100%)]"
       />
+      {!img.srcNight && <div aria-hidden className="night-only absolute inset-0 -z-10 bg-[#0d1829]/55 mix-blend-multiply" />}
       <div className="starfield -z-10" aria-hidden />
 
       <div className="gutter pt-[4.6rem]">
-        <h1 className={`display text-balance ${align === "center" ? "text-center" : ""} ${titleClass}`}>{title}</h1>
+        <h1 className={`display text-balance ${align === "center" ? "text-center" : ""} ${titleClass}`} style={{ fontSize: text ? fitSize(titleSize, text) : titleSize }}>
+          {title}
+        </h1>
       </div>
 
       <div

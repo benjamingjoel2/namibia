@@ -240,6 +240,12 @@
   }
 }
 
+/* On the dark bands, accent red is too dim: use apricot. */
+.bg-deep .verify-tag {
+  color: var(--c-apricot);
+  border-color: var(--c-apricot);
+}
+
 /* Day/night visibility helpers. */
 :root[data-theme="night"] .day-only {
   display: none !important;

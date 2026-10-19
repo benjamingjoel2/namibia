@@ -1,0 +1,148 @@
+import type { SkyMonth } from "@/types/content";
+
+/**
+ * The southern sky from Namibia (about 20–28° S), month by month, for the
+ * evening hours unless noted. Written for planning, not navigation: every
+ * entry is marked verify against a planetarium app before publishing.
+ */
+export const skyMonths: SkyMonth[] = [
+  {
+    month: 1,
+    headline: "Orion, Sirius and the Magellanic Clouds",
+    milkyWayCore: "Not visible. The core is near the sun.",
+    magellanicClouds: "High in the south in the evening. A superb time to see both clouds.",
+    southernCross: "Rising low in the south-east late in the evening.",
+    alsoUp: "Orion is high in the north and looks upside down to northern visitors. Sirius blazes; Canopus is high.",
+    nights: "Warm. Rain season in the north and centre brings cloud; the far south and coast are often clearer.",
+    verify: true,
+  },
+  {
+    month: 2,
+    headline: "Canopus and the winter-sky giants",
+    milkyWayCore: "Rising before dawn late in the month, low in the east.",
+    magellanicClouds: "Good in the evening, slowly lowering in the south-west.",
+    southernCross: "Climbing in the south-east through the evening.",
+    alsoUp: "Orion and Taurus in the west, Canopus very high.",
+    nights: "Warm. Often cloudy inland; check forecasts.",
+    verify: true,
+  },
+  {
+    month: 3,
+    headline: "The Cross climbs",
+    milkyWayCore: "Visible before dawn.",
+    magellanicClouds: "Lower in the south-west in the evening.",
+    southernCross: "Well up in the south-east by mid-evening, with the Pointers below.",
+    alsoUp: "The Coalsack beside the Cross. Eta Carinae nebula with binoculars.",
+    nights: "Warm nights; rains easing.",
+    verify: true,
+  },
+  {
+    month: 4,
+    headline: "The Cross at its best; the core rises at midnight",
+    milkyWayCore: "Rising around midnight; high before dawn.",
+    magellanicClouds: "Low in the south in the evening, still visible.",
+    southernCross: "High in the south in the evening. Its best months begin.",
+    alsoUp: "Omega Centauri, the finest globular cluster in the sky, with binoculars. The Jewel Box beside the Cross.",
+    nights: "Clearing skies, cooling nights. The dark-sky season begins.",
+    verify: true,
+  },
+  {
+    month: 5,
+    headline: "Milky Way season begins",
+    milkyWayCore: "Rising in the late evening, overhead before dawn.",
+    magellanicClouds: "Low in the south.",
+    southernCross: "Highest in the south during the evening.",
+    alsoUp: "Scorpius rises in the east. The Eta Aquariid meteor shower peaks in early May.",
+    nights: "Cool and very clear. One of the best months to visit.",
+    verify: true,
+  },
+  {
+    month: 6,
+    headline: "The core overhead",
+    milkyWayCore: "Up from early evening and overhead around midnight. Spectacular.",
+    magellanicClouds: "Lowest in the south in the evening; better before dawn.",
+    southernCross: "High in the south-west in the evening.",
+    alsoUp: "Scorpius curls overhead. Its tail is close to the core of the Milky Way.",
+    nights: "Long, clear and cold. Desert nights can drop close to freezing.",
+    verify: true,
+  },
+  {
+    month: 7,
+    headline: "Peak Milky Way",
+    milkyWayCore: "Overhead in the evening. The galaxy casts a faint shadow on moonless nights.",
+    magellanicClouds: "Low in the south, rising later.",
+    southernCross: "In the south-west in the evening.",
+    alsoUp: "Scorpius and Sagittarius overhead. Dark dust lanes visible to the naked eye.",
+    nights: "Coldest and clearest. Bring a down jacket.",
+    verify: true,
+  },
+  {
+    month: 8,
+    headline: "Still superb",
+    milkyWayCore: "High in the evening, setting towards the west after midnight.",
+    magellanicClouds: "Climbing in the south-east later in the night.",
+    southernCross: "Lower in the south-west in the evening.",
+    alsoUp: "The Milky Way runs from horizon to horizon. (The Perseid meteors are low and weak this far south: don't plan around them.)",
+    nights: "Cool, clear and dry. Wind can raise dust in the afternoons.",
+    verify: true,
+  },
+  {
+    month: 9,
+    headline: "Core in the west after dusk",
+    milkyWayCore: "In the west in the early evening. Photograph it soon after dark.",
+    magellanicClouds: "Rising higher in the south-east in the evening.",
+    southernCross: "Low in the south-west, setting.",
+    alsoUp: "Fomalhaut in the east. The southern Milky Way arcs over the south.",
+    nights: "Mild nights. Still excellent.",
+    verify: true,
+  },
+  {
+    month: 10,
+    headline: "The clouds climb",
+    milkyWayCore: "Low in the west after dusk, briefly.",
+    magellanicClouds: "Both clouds well up in the south in the evening.",
+    southernCross: "Very low or below the southern horizon in the evening.",
+    alsoUp: "The Small Magellanic Cloud with 47 Tucanae beside it: a beautiful binocular sight.",
+    nights: "Warm. Usually still clear.",
+    verify: true,
+  },
+  {
+    month: 11,
+    headline: "Magellanic Clouds season",
+    milkyWayCore: "Setting at dusk.",
+    magellanicClouds: "High in the south. Two galaxies, visible without any optics.",
+    southernCross: "Skimming the southern horizon.",
+    alsoUp: "Orion rising late in the evening. The Pleiades in the north-east.",
+    nights: "Warm. Storms may build in the north.",
+    verify: true,
+  },
+  {
+    month: 12,
+    headline: "Orion returns",
+    milkyWayCore: "Not visible.",
+    magellanicClouds: "High in the south. Excellent.",
+    southernCross: "Low in the south-east, rising late.",
+    alsoUp: "Orion and Sirius in the east. The Geminid meteor shower in mid-December.",
+    nights: "Warm. Rain season beginning inland.",
+    verify: true,
+  },
+];
+
+export const darkSkyFacts = [
+  {
+    title: "Few people, few lights",
+    text: "Namibia is one of the least densely populated countries on Earth. Away from a handful of towns, there's almost no artificial light for hundreds of kilometres.",
+  },
+  {
+    title: "Dry, clean air",
+    text: "The Namib is one of the driest places on the planet. Little water vapour and little dust (on calm nights) mean sharp, steady stars.",
+  },
+  {
+    title: "High ground",
+    text: "Much of the country is a plateau over 1,000 m above sea level, so there's less atmosphere between you and the sky.",
+  },
+  {
+    title: "The southern sky",
+    text: "From here you see what the northern hemisphere never does: the Milky Way's core overhead, the Magellanic Clouds and the Southern Cross.",
+  },
+];

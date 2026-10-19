@@ -54,9 +54,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="relative bg-bg-alt text-bg-alt">
-        <DuneDivider variant={0} />
-      </div>
+      <DuneDivider into="alt" variant={0} />
       <FeaturedDestinations items={featuredDestinations} />
 
       <ParallaxBand
@@ -70,9 +68,7 @@ export default function Home() {
 
       <ThreePoints />
 
-      <div className="relative bg-band text-band">
-        <DuneDivider variant={1} />
-      </div>
+      <DuneDivider into="band" variant={1} />
       <Testimonials items={testimonials} />
 
       <CtaBand />

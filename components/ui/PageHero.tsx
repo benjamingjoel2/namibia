@@ -45,7 +45,7 @@ export function PageHero({
         size === "full" ? "min-h-[36rem] h-[min(100svh,56rem)]" : "min-h-[26rem] h-[60svh] max-h-[38rem]"
       }`}
     >
-      <ThemedImage img={img} sizes="100vw" priority className="-z-20 object-cover" />
+      <ThemedImage img={img} sizes="100vw" priority className="kenburns -z-20 object-cover" />
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(20_16_12/0.48)_0%,rgb(20_16_12/0.12)_38%,rgb(20_16_12/0.18)_62%,rgb(20_16_12/0.6)_100%)]"

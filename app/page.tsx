@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { FeaturedDestinations } from "@/components/home/FeaturedDestinations";
 import { Testimonials } from "@/components/home/Testimonials";
 import { ThreePoints } from "@/components/home/ThreePoints";
+import { DayStory } from "@/components/home/DayStory";
+import { PhotoStrip } from "@/components/home/PhotoStrip";
+import { PhotoStatement } from "@/components/ui/PhotoStatement";
 import { TonightSky } from "@/components/home/TonightSky";
 import { ArrowButton } from "@/components/ui/ArrowButton";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { DuneDivider } from "@/components/ui/DuneDivider";
 import { PageHero } from "@/components/ui/PageHero";
-import { ParallaxBand } from "@/components/ui/Parallax";
-import { Reveal } from "@/components/ui/Reveal";
-import { SectionLabel, Statement } from "@/components/ui/Section";
 import { ctaLabel, site } from "@/config/site";
 import { featuredDestinations } from "@/data/destinations";
 import { testimonials } from "@/data/testimonials";
@@ -43,33 +43,38 @@ export default function Home() {
 
       <TonightSky />
 
-      <section aria-labelledby="mission-label" className="section-y relative bg-bg text-fg">
-        <div className="gutter">
-          <SectionLabel id="mission-label">Space, silence, and respect</SectionLabel>
-          <Reveal>
-            <Statement className="mt-16 max-w-[62rem] md:mt-24">
-              We travel privately or in very small groups. We work with community conservancies and local guides, so the money a journey brings stays where it was made. And we leave the desert as we found it: tracks raked, lights off, nothing taken but photographs.
-            </Statement>
-          </Reveal>
-        </div>
-      </section>
+      <PhotoStatement
+        id="mission-label"
+        label="Space, silence, and respect"
+        img={{
+          src: "/photos/dest-namibrand.jpg",
+          alt: "Red sand, golden grass and mountains on the edge of the Namib",
+          srcNight: "/photos/band-night-sky.jpg",
+          altNight: "The Milky Way over a quiver tree",
+        }}
+      >
+        We travel privately or in very small groups. We work with community conservancies and local guides, so the money a journey brings stays where it was made. And we leave the desert as we found it: tracks raked, lights off, nothing taken but photographs.
+      </PhotoStatement>
 
-      <DuneDivider into="alt" variant={0} />
+      <DayStory />
+
       <FeaturedDestinations items={featuredDestinations} />
 
-      <ParallaxBand
+      <DuneDivider into="alt" variant={0} />
+      <ThreePoints />
+
+      <DuneDivider into="bg" variant={2} />
+      <PhotoStrip />
+
+      <Testimonials
+        items={testimonials}
         img={{
-          src: "/photos/band-deadvlei-day.jpg",
-          alt: "Dead camelthorn trees on a white clay pan below red dunes",
+          src: "/photos/band-etosha.jpg",
+          alt: "A lone tree on the edge of the Etosha pan",
           srcNight: "/photos/band-deadvlei-night.jpg",
           altNight: "Deadvlei's trees under a sky full of stars",
         }}
       />
-
-      <ThreePoints />
-
-      <DuneDivider into="band" variant={1} />
-      <Testimonials items={testimonials} />
 
       <CtaBand />
     </>

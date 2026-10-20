@@ -1,86 +1,47 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowButton } from "@/components/ui/ArrowButton";
+import { ArrowButton, ArrowDisc } from "@/components/ui/ArrowButton";
 import { Reveal } from "@/components/ui/Reveal";
-import { DashedRule, Num, SectionLabel } from "@/components/ui/Section";
 import type { Destination } from "@/types/content";
 
-/**
- * Three numbered destinations in the reference's staggered rhythm:
- * (01) large image left, (02) text left and smaller image right, (03) small image left.
- */
+/** Three numbered destinations as full-screen photo panels with the name set over the image. */
 export function FeaturedDestinations({ items }: { items: Destination[] }) {
   return (
-    <section aria-labelledby="dest-label" className="section-y relative bg-bg-alt text-fg">
-      <div className="gutter">
-        <SectionLabel id="dest-label">Where the light falls</SectionLabel>
-        <p className="mt-6 max-w-[28rem]">Three places that change by the hour, and where we&rsquo;ll make sure you are when they do.</p>
-
-        <div className="mt-16 md:mt-24">
-          {items.map((d, i) => (
-            <Reveal key={d.slug}>
-              <DashedRule />
-              <Row d={d} index={i} />
-            </Reveal>
-          ))}
-          <DashedRule />
-          <ArrowButton href="/destinations" className="mt-8">
-            Discover All Destinations
-          </ArrowButton>
+    <section aria-labelledby="dest-label" className="relative bg-deep text-[#f5f0e8]">
+      <div className="gutter flex flex-wrap items-end justify-between gap-6 pb-10 pt-24 md:pt-32">
+        <div>
+          <h2 id="dest-label" className="label text-[#f5f0e8]/80">
+            Where the light falls
+          </h2>
+          <p className="statement mt-6 max-w-[40rem] text-[1.9rem] md:text-[2.8rem]">Three places that change by the hour.</p>
         </div>
+        <ArrowButton href="/destinations" tone="light">
+          Discover All Destinations
+        </ArrowButton>
       </div>
-    </section>
-  );
-}
 
-function Row({ d, index }: { d: Destination; index: number }) {
-  const text = (
-    <div className="max-w-[24rem] py-5 md:py-6">
-      <Num n={index + 1} pad />
-      <h3 className="mt-4 text-[1.55rem] leading-tight md:mt-6">
-        <Link href={`/destinations/${d.slug}`} className="underline-offset-4 hover:underline">
-          {d.name}
+      {items.map((d, i) => (
+        <Link
+          key={d.slug}
+          href={`/destinations/${d.slug}`}
+          className="group relative block h-[88svh] min-h-[32rem] overflow-hidden"
+          aria-label={`${d.name}: ${d.tagline}`}
+        >
+          <Image src={d.hero.src} alt="" fill sizes="100vw" className="object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-[1.04]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.15)_0%,transparent_35%,rgb(0_0_0/0.72)_100%)]" />
+          <Reveal className={`gutter absolute inset-x-0 bottom-0 pb-10 md:pb-14 ${i % 2 ? "md:text-right" : ""}`}>
+            <p className="text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">({String(i + 1).padStart(2, "0")}) · {d.region.toUpperCase()}</p>
+            <p className="display mt-4 text-[clamp(2.6rem,7.5vw,7.5rem)]">{d.name.split(",")[0].split(" & ")[0]}</p>
+            <div className={`mt-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between ${i % 2 ? "md:flex-row-reverse" : ""}`}>
+              <p className="max-w-[30rem] text-[1.1rem] leading-relaxed text-[#f5f0e8]/90">{d.tagline}</p>
+              <span className="inline-flex items-center gap-3 text-[1.02rem]">
+                Explore
+                <ArrowDisc tone="light" />
+              </span>
+            </div>
+          </Reveal>
         </Link>
-      </h3>
-      <p className="mt-4 text-[1rem] md:mt-6">{d.tagline}</p>
-      <p className="mt-4 text-[0.95rem] text-muted">
-        <span className="font-semibold text-fg">Best light: </span>
-        {d.bestLight.sunrise.split(".")[0]}.
-      </p>
-    </div>
-  );
-
-  // Same image ratios as the reference: wide (01), smaller (02, 03).
-  const layouts = [
-    { wrap: "md:grid-cols-[1fr_1fr]", img: "aspect-[1.3] md:mt-6", imgFirst: true, sizes: "(min-width: 768px) 50vw, 100vw" },
-    { wrap: "md:grid-cols-[1fr_minmax(0,28.5rem)]", img: "aspect-[1.27] md:mt-6", imgFirst: false, sizes: "(min-width: 768px) 32vw, 100vw" },
-    { wrap: "md:grid-cols-[minmax(0,29.5rem)_1fr]", img: "aspect-[1.3] md:mt-6", imgFirst: true, sizes: "(min-width: 768px) 33vw, 100vw" },
-  ][index % 3];
-
-  const image = (
-    <Link
-      href={`/destinations/${d.slug}`}
-      className={`relative block overflow-hidden ${layouts.img}`}
-      tabIndex={-1}
-      aria-hidden
-    >
-      <Image src={d.hero.src} alt="" fill sizes={layouts.sizes} className="object-cover transition-transform duration-[1.2s] ease-out hover:scale-[1.03]" />
-    </Link>
-  );
-
-  return (
-    <div className={`grid gap-x-6 pb-6 pt-4 md:pb-6 md:pt-0 ${layouts.wrap}`}>
-      {layouts.imgFirst ? (
-        <>
-          <div className="order-2 md:order-1">{image}</div>
-          <div className="order-1 md:order-2">{text}</div>
-        </>
-      ) : (
-        <>
-          {text}
-          <div>{image}</div>
-        </>
-      )}
-    </div>
+      ))}
+    </section>
   );
 }

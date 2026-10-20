@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { DashedRule, Num, SectionLabel, Statement } from "@/components/ui/Section";
+import { SectionLabel, Statement } from "@/components/ui/Section";
 
 const points = [
   {
@@ -20,22 +20,27 @@ const points = [
   },
 ];
 
+/** The three promises as tall photo cards, text set over the image. */
 export function ThreePoints() {
   return (
     <section aria-labelledby="points-label" className="section-y relative bg-bg-alt text-fg">
       <div className="gutter">
         <SectionLabel id="points-label">The Namib Light way</SectionLabel>
-        <Statement className="mt-10 max-w-[44rem] md:mt-12">Three things we never compromise on, from the first email to the last morning.</Statement>
-        <DashedRule className="mt-16 md:mt-24" />
-        <ol className="mt-6 grid gap-12 md:grid-cols-3 md:gap-6">
+        <Statement className="mt-8 max-w-[44rem]">Three things we never compromise on.</Statement>
+        <ol className="mt-14 grid gap-4 md:grid-cols-3 md:gap-5">
           {points.map((p, i) => (
-            <Reveal as="li" key={p.title} delay={i * 0.12}>
-              <Num n={i + 1} />
-              <h3 className="mt-4 text-[1.55rem] leading-tight md:mt-6">{p.title}</h3>
-              <div className="relative mt-6 aspect-[1.27] overflow-hidden md:mt-10">
-                <Image src={p.img.src} alt={p.img.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
-              </div>
-              <p className="mt-5 max-w-[26rem]">{p.text}</p>
+            <Reveal as="li" key={p.title} delay={i * 0.12} className={i === 1 ? "md:mt-16" : ""}>
+              <figure className="group relative aspect-[3/4] overflow-hidden text-[#f5f0e8]">
+                <Image src={p.img.src} alt={p.img.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.06]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.25)_0%,transparent_35%,rgb(0_0_0/0.78)_100%)]" />
+                <figcaption className="absolute inset-0 flex flex-col justify-between p-6 md:p-7">
+                  <span className="text-sm tabular-nums tracking-[0.2em]">({i + 1})</span>
+                  <span>
+                    <span className="display block text-[clamp(2.4rem,4.4vw,4rem)]">{p.title}</span>
+                    <span className="mt-4 block max-w-[24rem] text-[1.02rem] leading-relaxed text-[#f5f0e8]/90">{p.text}</span>
+                  </span>
+                </figcaption>
+              </figure>
             </Reveal>
           ))}
         </ol>

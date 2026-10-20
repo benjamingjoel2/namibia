@@ -246,6 +246,21 @@
   border-color: var(--c-apricot);
 }
 
+/* Slow drift on hero photographs. */
+@media (prefers-reduced-motion: no-preference) {
+  .kenburns {
+    animation: kenburns 22s cubic-bezier(0.2, 0.6, 0.3, 1) both;
+  }
+}
+@keyframes kenburns {
+  from {
+    transform: scale(1.12) translate3d(0, 1.5%, 0);
+  }
+  to {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
 /* Day/night visibility helpers. */
 :root[data-theme="night"] .day-only {
   display: none !important;

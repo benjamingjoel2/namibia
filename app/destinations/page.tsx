@@ -5,7 +5,7 @@ import { CtaBand } from "@/components/ui/CtaBand";
 import { MonthsStrip } from "@/components/ui/MonthsStrip";
 import { PageHero } from "@/components/ui/PageHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { DashedRule, Num, Statement } from "@/components/ui/Section";
+import { Statement } from "@/components/ui/Section";
 import { destinations } from "@/data/destinations";
 import { pageMetadata } from "@/lib/seo";
 
@@ -34,7 +34,7 @@ export default function DestinationsPage() {
         img={{ src: "/photos/hero-destinations.jpg", alt: "A road winding through the desert" }}
       />
 
-      <section aria-label="Introduction" className="section-y bg-band">
+      <section aria-label="Introduction" className="section-y bg-deep text-on-deep">
         <div className="gutter">
           <Statement className="max-w-[60rem]">
             Namibia is huge and quiet, and its distances are real. We&rsquo;ll tell you honestly how far each place is from the last, what the light does there, and when to go.
@@ -42,42 +42,42 @@ export default function DestinationsPage() {
         </div>
       </section>
 
-      <section aria-labelledby="all-dest" className="bg-bg-alt pb-24 pt-16 md:pb-32">
+      <section aria-labelledby="all-dest" className="bg-bg-alt">
         <h2 id="all-dest" className="sr-only">
           All destinations
         </h2>
-        <ol className="gutter">
+        <ol>
           {destinations.map((d, i) => (
-            <li key={d.slug} id={d.slug} className="scroll-mt-24">
-              <DashedRule />
-              <Reveal className="pb-16 pt-4 md:pb-24">
-                <Num n={i + 1} />
-                <Link href={`/destinations/${d.slug}`} className="relative mt-4 block aspect-[1.4] overflow-hidden md:aspect-[2.75]" tabIndex={-1} aria-hidden>
-                  <Image src={d.hero.src} alt="" fill sizes="100vw" className="object-cover transition-transform duration-[1.2s] hover:scale-[1.02]" />
-                </Link>
-                <div className="mt-6 grid gap-6 md:grid-cols-2">
-                  <div>
-                    <p className="text-[0.95rem]">{d.region}</p>
-                    <h3 className="statement mt-2 text-[2rem] md:text-[2.6rem]">
-                      <Link href={`/destinations/${d.slug}`} className="underline-offset-[6px] hover:underline">
-                        {d.name}
-                      </Link>
-                    </h3>
-                  </div>
-                  <div className="max-w-[34rem]">
-                    <p>{d.intro[0]}</p>
-                    <p className="mt-4 text-[0.95rem]">
-                      <span className="font-semibold">Best light: </span>
-                      <span className="text-muted">{d.bestLight.sunrise}</span>
-                    </p>
-                    <MonthsStrip months={d.bestMonths} className="mt-5" />
-                    <ArrowButton href={`/destinations/${d.slug}`} className="mt-8">
-                      Discover {d.name.split(",")[0].split(" & ")[0]}
-                    </ArrowButton>
-                  </div>
+            <li key={d.slug} id={d.slug} className="scroll-mt-16">
+              <div className="group relative h-[82svh] min-h-[30rem] overflow-hidden text-[#f5f0e8]">
+                <Image src={d.hero.src} alt={d.hero.alt} fill sizes="100vw" className="object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-[1.03]" />
+                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.25)_0%,transparent_35%,rgb(0_0_0/0.7)_100%)]" aria-hidden />
+                <div className="gutter absolute inset-x-0 bottom-0 pb-10 md:pb-14">
+                  <p className="text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">
+                    ({String(i + 1).padStart(2, "0")}) · {d.region.toUpperCase()}
+                  </p>
+                  <h3 className="display mt-4 text-[clamp(2.4rem,7vw,7rem)]">
+                    <Link href={`/destinations/${d.slug}`} className="after:absolute after:inset-0">
+                      {d.name.split(",")[0]}
+                    </Link>
+                  </h3>
+                  <p className="mt-5 max-w-[34rem] text-[1.1rem] text-[#f5f0e8]/90">{d.tagline}</p>
                 </div>
-                <div className="relative mx-auto mt-14 aspect-[1.27] w-full max-w-[28.5rem] overflow-hidden">
-                  <Image src={d.detail.src} alt={d.detail.alt} fill sizes="(min-width: 768px) 456px, 100vw" className="object-cover" />
+              </div>
+              <Reveal className="gutter grid gap-10 py-14 md:grid-cols-[1.1fr_1fr] md:py-20">
+                <div className="max-w-[36rem]">
+                  <p className="text-[1.15rem] leading-relaxed">{d.intro[0]}</p>
+                  <p className="mt-5 text-[0.98rem]">
+                    <span className="font-semibold">Best light: </span>
+                    <span className="text-muted">{d.bestLight.sunrise}</span>
+                  </p>
+                  <MonthsStrip months={d.bestMonths} className="mt-6" />
+                  <ArrowButton href={`/destinations/${d.slug}`} className="mt-8">
+                    Discover {d.name.split(",")[0].split(" & ")[0]}
+                  </ArrowButton>
+                </div>
+                <div className="relative aspect-[1.3] overflow-hidden">
+                  <Image src={d.detail.src} alt={d.detail.alt} fill sizes="(min-width: 768px) 45vw, 100vw" className="object-cover" />
                 </div>
               </Reveal>
             </li>

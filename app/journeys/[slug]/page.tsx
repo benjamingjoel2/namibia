@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Price } from "@/components/layout/CurrencySwitcher";
@@ -7,6 +8,8 @@ import { ArrowButton } from "@/components/ui/ArrowButton";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { MonthsStrip } from "@/components/ui/MonthsStrip";
 import { PageHero } from "@/components/ui/PageHero";
+import { ParallaxImage } from "@/components/ui/Parallax";
+import { PhotoCards } from "@/components/ui/PhotoCards";
 import { DashedRule, Num, PlaceholderTag, SectionLabel, Statement } from "@/components/ui/Section";
 import { ctaLabel } from "@/config/site";
 import { getDestination } from "@/data/destinations";
@@ -88,6 +91,26 @@ export default async function JourneyPage({ params }: Props) {
         </div>
       </section>
 
+      <section aria-labelledby="route-strip-label" className="bg-bg pb-20">
+        <h2 id="route-strip-label" className="label gutter">
+          Places on this route
+        </h2>
+        <ol className="mt-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 md:px-6" tabIndex={0} aria-label="Places on this route">
+          {places.map((p, i) => (
+            <li key={p.slug} className="shrink-0 snap-start">
+              <Link href={`/destinations/${p.slug}`} className="group relative block h-[24rem] w-[19rem] max-w-[82vw] overflow-hidden text-[#f5f0e8] md:h-[28rem] md:w-[22rem]">
+                <Image src={p.hero.src} alt={p.hero.alt} fill sizes="22rem" className="object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-[1.06]" />
+                <span className="absolute inset-0 bg-[linear-gradient(180deg,transparent_45%,rgb(0_0_0/0.75)_100%)]" aria-hidden />
+                <span className="absolute inset-x-0 bottom-0 p-5">
+                  <span className="block text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">STOP {i + 1}</span>
+                  <span className="statement mt-2 block text-[1.6rem] leading-tight">{p.name.split(",")[0]}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ol>
+      </section>
+
       <section aria-labelledby="styles-label" className="section-y bg-bg-alt">
         <div className="gutter">
           <SectionLabel id="styles-label">How you can travel it</SectionLabel>
@@ -123,53 +146,59 @@ export default async function JourneyPage({ params }: Props) {
         </div>
       </section>
 
-      <section aria-labelledby="light-label" className="section-y bg-band">
-        <div className="gutter grid gap-14 lg:grid-cols-2">
-          <div>
-            <SectionLabel id="light-label">Where to be when the light is right</SectionLabel>
-            <ul className="mt-8">
-              {lightDays.map((d) => (
-                <li key={d.day} className="border-t border-dashed border-fg/40 py-4">
-                  <p className="text-sm text-muted">
-                    Day {d.day} · {d.to}
-                  </p>
-                  {d.sunrise && (
-                    <p className="mt-1">
-                      <span className="font-semibold">Sunrise: </span>
-                      {d.sunrise}
+      <section aria-labelledby="light-label" className="relative bg-deep text-[#f5f0e8]">
+        <ParallaxImage img={{ src: j.hero.src, alt: j.hero.alt }} className="py-24 md:py-36">
+          <div className="absolute inset-0 bg-black/60" aria-hidden />
+          <div className="starfield" aria-hidden />
+          <div className="gutter relative grid gap-6 lg:grid-cols-2">
+            <div className="border border-[#f5f0e8]/25 bg-[#0b0f17]/45 p-6 backdrop-blur-md md:p-8">
+              <h2 id="light-label" className="label text-[#f6c88f]">
+                Where to be when the light is right
+              </h2>
+              <ul className="mt-6">
+                {lightDays.map((d) => (
+                  <li key={d.day} className="border-t border-[#f5f0e8]/20 py-4">
+                    <p className="text-sm text-[#f5f0e8]/70">
+                      Day {d.day} · {d.to}
                     </p>
-                  )}
-                  {d.sunset && (
-                    <p className="mt-1">
-                      <span className="font-semibold">Sunset: </span>
-                      {d.sunset}
+                    {d.sunrise && (
+                      <p className="mt-1">
+                        <span className="font-semibold">Sunrise: </span>
+                        {d.sunrise}
+                      </p>
+                    )}
+                    {d.sunset && (
+                      <p className="mt-1">
+                        <span className="font-semibold">Sunset: </span>
+                        {d.sunset}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="self-start border border-[#f5f0e8]/25 bg-[#0b0f17]/45 p-6 backdrop-blur-md md:p-8">
+              <p className="label text-[#f6c88f]">Stargazing nights</p>
+              <ul className="mt-6">
+                {starDays.map((d) => (
+                  <li key={d.day} className="border-t border-[#f5f0e8]/20 py-4">
+                    <p className="text-sm text-[#f5f0e8]/70">
+                      Night {d.day} · {d.to}
                     </p>
-                  )}
-                </li>
-              ))}
-            </ul>
+                    <p className="mt-1">
+                      <span className="text-[#f6c88f]">✦</span> {d.skyNote ?? "A dark-sky night. Walk away from the lights and let your eyes adjust."}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6">
+                <Link href="/night-sky#moon" className="underline underline-offset-4">
+                  Check the moon for your dates
+                </Link>
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="label">Stargazing nights</p>
-            <ul className="mt-8">
-              {starDays.map((d) => (
-                <li key={d.day} className="border-t border-dashed border-fg/40 py-4">
-                  <p className="text-sm text-muted">
-                    Night {d.day} · {d.to}
-                  </p>
-                  <p className="mt-1">
-                    <span className="text-accent">✦</span> {d.skyNote ?? "A dark-sky night. Walk away from the lights and let your eyes adjust."}
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6">
-              <Link href="/night-sky#moon" className="underline underline-offset-4">
-                Check the moon for your dates
-              </Link>
-            </p>
-          </div>
-        </div>
+        </ParallaxImage>
       </section>
 
       {stays.length > 0 && (
@@ -179,14 +208,12 @@ export default async function JourneyPage({ params }: Props) {
               <SectionLabel id="stays-label">Where you&rsquo;ll stay</SectionLabel>
               <PlaceholderTag>placeholder names</PlaceholderTag>
             </div>
-            <ul className="mt-10 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
-              {stays.map((s) => (
-                <li key={s.id} className="border-t border-dashed border-line py-5">
-                  <p className="text-[1.25rem]">{s.name}</p>
-                  <p className="mt-1 text-[0.98rem]">{s.blurb}</p>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10">
+              <PhotoCards
+                stagger={false}
+                items={stays.map((st) => ({ img: st.image, title: st.name.replace(" (placeholder)", ""), text: st.blurb }))}
+              />
+            </div>
             <p className="mt-6 text-sm text-muted">Every stay can be swapped: camping, lodges or luxury camps.</p>
           </div>
         </section>

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Price } from "@/components/layout/CurrencySwitcher";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { MonthsStrip } from "@/components/ui/MonthsStrip";
 import { PageHero } from "@/components/ui/PageHero";
-import { DashedRule, Num, PlaceholderTag, SectionLabel, Statement } from "@/components/ui/Section";
+import { ParallaxImage } from "@/components/ui/Parallax";
+import { PhotoCards } from "@/components/ui/PhotoCards";
+import { PlaceholderTag, SectionLabel, Statement } from "@/components/ui/Section";
 import { destinations, getDestination } from "@/data/destinations";
 import { journeysFor } from "@/data/journeys";
 import { getStay } from "@/data/stays";
@@ -84,23 +85,29 @@ export default async function DestinationPage({ params }: Props) {
         </div>
       </section>
 
-      <section aria-labelledby="light-label" className="section-y bg-bg">
-        <div className="gutter">
-          <SectionLabel id="light-label">The best light</SectionLabel>
-          <DashedRule className="mt-10" />
-          <dl className="mt-6 grid gap-10 md:grid-cols-3 md:gap-6">
-            <LightItem n={1} title="Sunrise" text={d.bestLight.sunrise} />
-            <LightItem n={2} title="Sunset" text={d.bestLight.sunset} />
-            {d.bestLight.night && <LightItem n={3} title="After dark" text={d.bestLight.night} />}
-          </dl>
-          <div className="mt-16 grid gap-6 md:grid-cols-2">
-            <div>
-              <p className="label">Best months</p>
-              <MonthsStrip months={d.bestMonths} className="mt-4" />
+      <section aria-labelledby="light-label" className="relative bg-deep text-[#f5f0e8]">
+        <ParallaxImage img={d.hero} className="py-24 md:py-36">
+          <div className="absolute inset-0 bg-black/55" aria-hidden />
+          <div className="starfield" aria-hidden />
+          <div className="gutter relative">
+            <h2 id="light-label" className="label text-[#f6c88f]">
+              The best light
+            </h2>
+            <p className="statement mt-6 max-w-[40rem] text-[1.9rem] md:text-[2.8rem]">Where to be, and when.</p>
+            <dl className="mt-12 grid gap-4 md:grid-cols-3">
+              <LightItem n={1} title="Sunrise" text={d.bestLight.sunrise} />
+              <LightItem n={2} title="Sunset" text={d.bestLight.sunset} />
+              {d.bestLight.night && <LightItem n={3} title="After dark" text={d.bestLight.night} />}
+            </dl>
+            <div className="mt-10 grid gap-6 border border-[#f5f0e8]/25 bg-[#0b0f17]/45 p-6 backdrop-blur-md md:grid-cols-2">
+              <div>
+                <p className="label">Best months</p>
+                <MonthsStrip months={d.bestMonths} className="mt-4" />
+              </div>
+              <p className="max-w-[34rem]">{d.bestMonthsNote}</p>
             </div>
-            <p className="max-w-[34rem]">{d.bestMonthsNote}</p>
           </div>
-        </div>
+        </ParallaxImage>
       </section>
 
       {stays.length > 0 && (
@@ -110,23 +117,17 @@ export default async function DestinationPage({ params }: Props) {
               <SectionLabel id="stays-label">Where we stay</SectionLabel>
               <PlaceholderTag>placeholder names</PlaceholderTag>
             </div>
-            <ul className="mt-10">
-              {stays.map((s, i) => (
-                <li key={s.id} className="grid gap-6 border-t border-dashed border-line py-6 md:grid-cols-[minmax(0,28.5rem)_1fr]">
-                  <div className="relative aspect-[1.27] overflow-hidden">
-                    <Image src={s.image.src} alt={s.image.alt} fill sizes="(min-width: 768px) 456px, 100vw" className="object-cover" />
-                  </div>
-                  <div>
-                    <Num n={i + 1} />
-                    <h3 className="mt-3 text-[1.55rem]">{s.name}</h3>
-                    <p className="mt-1 text-sm uppercase tracking-[0.08em] text-muted">{stayType[s.type]}</p>
-                    <p className="mt-4 max-w-[30rem]">{s.blurb}</p>
-                    {s.darkSky && <p className="mt-3 text-sm text-accent">✦ Dark-sky location</p>}
-                    {s.floodlitWaterhole && <p className="mt-3 text-sm text-accent">✦ Floodlit waterhole</p>}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10">
+              <PhotoCards
+                stagger={false}
+                items={stays.map((st) => ({
+                  img: st.image,
+                  title: st.name.replace(" (placeholder)", ""),
+                  kicker: `${stayType[st.type].toUpperCase()}${st.darkSky ? " · ✦ DARK SKY" : ""}${st.floodlitWaterhole ? " · ✦ FLOODLIT WATERHOLE" : ""}`,
+                  text: st.blurb,
+                }))}
+              />
+            </div>
           </div>
         </section>
       )}
@@ -135,34 +136,26 @@ export default async function DestinationPage({ params }: Props) {
         <section aria-labelledby="trips-label" className="section-y bg-bg">
           <div className="gutter">
             <SectionLabel id="trips-label">Journeys that come here</SectionLabel>
-            <ul className="mt-10">
-              {trips.map((j) => (
-                <li key={j.slug} className="grid gap-2 border-t border-dashed border-line py-5 last:border-b md:grid-cols-[1fr_auto] md:items-baseline">
-                  <div>
-                    <Link href={`/journeys/${j.slug}`} className="statement text-[1.5rem] underline-offset-4 hover:underline md:text-[1.9rem]">
-                      {j.title}
-                    </Link>
-                    <p className="mt-1 text-muted">
-                      {j.days.length} days · {j.summary}
-                    </p>
-                  </div>
-                  <p>
-                    <Price usd={Math.min(...j.styles.map((s) => s.fromUSD))} />
-                  </p>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-10">
+              <PhotoCards
+                stagger={false}
+                items={trips.map((j) => ({ img: j.hero, title: j.title, kicker: `${j.days.length} DAYS`, href: `/journeys/${j.slug}` }))}
+              />
+            </div>
           </div>
         </section>
       )}
 
-      <section aria-label="Next destination" className="bg-bg-alt py-10">
-        <div className="gutter flex flex-wrap items-baseline justify-between gap-4">
-          <span className="label">Next destination</span>
-          <Link href={`/destinations/${next.slug}`} className="statement text-[1.5rem] underline-offset-4 hover:underline">
-            {next.name} →
-          </Link>
-        </div>
+      <section aria-label="Next destination">
+        <Link href={`/destinations/${next.slug}`} className="group relative block h-[70svh] min-h-[26rem] overflow-hidden text-[#f5f0e8]">
+          <Image src={next.hero.src} alt={next.hero.alt} fill sizes="100vw" className="object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-[1.04]" />
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.2)_0%,rgb(0_0_0/0.7)_100%)]" aria-hidden />
+          <div className="gutter absolute inset-x-0 bottom-0 pb-12">
+            <p className="text-sm tracking-[0.2em] text-[#f6c88f]">NEXT DESTINATION →</p>
+            <p className="display mt-4 text-[clamp(2.4rem,7vw,7rem)]">{next.name.split(",")[0]}</p>
+            <p className="mt-4 max-w-[34rem] text-[1.1rem] text-[#f5f0e8]/90">{next.tagline}</p>
+          </div>
+        </Link>
       </section>
 
       <CtaBand label={`Plan a journey with ${d.name.split(",")[0].split(" & ")[0]}`} />
@@ -172,14 +165,12 @@ export default async function DestinationPage({ params }: Props) {
 
 function LightItem({ n, title, text }: { n: number; title: string; text: string }) {
   return (
-    <div>
-      <dt className="text-[1.55rem]">
-        <span className="block">
-          <Num n={n} />
-        </span>
-        <span className="mt-3 block">{title}</span>
+    <div className="border border-[#f5f0e8]/25 bg-[#0b0f17]/45 p-6 backdrop-blur-md">
+      <dt>
+        <span className="block text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">({n})</span>
+        <span className="display mt-3 block text-[2rem]">{title}</span>
       </dt>
-      <dd className="mt-3 max-w-[26rem]">{text}</dd>
+      <dd className="mt-3 text-[#f5f0e8]/90">{text}</dd>
     </div>
   );
 }

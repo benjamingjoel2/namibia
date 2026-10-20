@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
-import { Num } from "@/components/ui/Section";
 import { styleProfiles } from "@/data/travelStyles";
 
 const cost = (n: 1 | 2 | 3) => (
@@ -12,17 +11,22 @@ const cost = (n: 1 | 2 | 3) => (
   </span>
 );
 
-/** An honest three-way comparison, laid out like the reference's three points. */
+/** An honest three-way comparison: tall photo cards, then the details. */
 export function StyleComparison() {
   return (
     <ol className="grid gap-14 md:grid-cols-3 md:gap-6">
       {styleProfiles.map((p, i) => (
         <Reveal as="li" key={p.style} delay={i * 0.1}>
-          <Num n={i + 1} />
-          <h3 className="mt-4 text-[1.55rem] leading-tight">{p.name}</h3>
-          <p className="mt-1 text-muted">{p.oneLine}</p>
-          <div className="relative mt-6 aspect-[1.27] overflow-hidden">
-            <Image src={`/photos/style-${p.style}.jpg`} alt={`${p.name} travel in Namibia`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+          <div className="group relative aspect-[3/4] overflow-hidden text-[#f5f0e8]">
+            <Image src={`/photos/style-${p.style}.jpg`} alt={`${p.name} travel in Namibia`} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.06]" />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.25)_0%,transparent_35%,rgb(0_0_0/0.78)_100%)]" aria-hidden />
+            <div className="absolute inset-0 flex flex-col justify-between p-6 md:p-7">
+              <span className="text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">({i + 1})</span>
+              <span>
+                <h3 className="display text-[clamp(2rem,3vw,2.9rem)]">{p.name}</h3>
+                <span className="mt-3 block text-[1.05rem] text-[#f5f0e8]/90">{p.oneLine}</span>
+              </span>
+            </div>
           </div>
           <dl className="mt-6 space-y-4 text-[0.98rem]">
             <div>

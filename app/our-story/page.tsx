@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { PageHero } from "@/components/ui/PageHero";
+import { PhotoCards } from "@/components/ui/PhotoCards";
+import { PhotoStatement } from "@/components/ui/PhotoStatement";
 import { Reveal } from "@/components/ui/Reveal";
-import { DashedRule, Num, PlaceholderTag, SectionLabel, Statement } from "@/components/ui/Section";
+import { DashedRule, Num, PlaceholderTag, SectionLabel } from "@/components/ui/Section";
 import { founder, team } from "@/data/team";
 import { pageMetadata } from "@/lib/seo";
 
@@ -19,6 +21,12 @@ const commitments = [
   ["Honest numbers", "Real distances, honest prices, and the drawbacks of a route as well as its beauty."],
 ];
 
+const commitmentImgs = [
+  { src: "/photos/stay-6.jpg", alt: "Thatched huts beside a river" },
+  { src: "/photos/dest-sossusvlei.jpg", alt: "A dune crest at Sossusvlei with a line of footprints" },
+  { src: "/photos/point-honesty.jpg", alt: "A 4x4 on sandy tracks near the dunes" },
+];
+
 export default function OurStoryPage() {
   return (
     <>
@@ -29,13 +37,9 @@ export default function OurStoryPage() {
         titleSize="clamp(2.6rem,7.9vw,8.4rem)"
       />
 
-      <section aria-label="Our purpose" className="section-y bg-bg">
-        <div className="gutter">
-          <Statement className="max-w-[62rem]">
-            We believe the best journeys here are slow and well-timed: a dune at dawn with nobody else on it, a waterhole at dusk, a night so dark you can see the Milky Way&rsquo;s shadow. Everything we plan is built around that, and around the people who call this country home.
-          </Statement>
-        </div>
-      </section>
+      <PhotoStatement id="purpose-label" label="Why we exist" img={{ src: "/photos/journey-photographers.jpg", alt: "A dead camelthorn tree in Deadvlei" }}>
+        The best journeys here are slow and well-timed: a dune at dawn with nobody else on it, a waterhole at dusk, a night so dark you can see the Milky Way&rsquo;s shadow. Everything we plan is built around that, and around the people who call this country home.
+      </PhotoStatement>
 
       <section aria-labelledby="founder-label" className="bg-bg-alt">
         <div className="grid md:grid-cols-2">
@@ -85,18 +89,12 @@ export default function OurStoryPage() {
         </div>
       </section>
 
-      <section aria-labelledby="how-label" className="section-y bg-band">
+      <section aria-labelledby="how-label" className="section-y bg-bg-alt">
         <div className="gutter">
           <SectionLabel id="how-label">How we travel</SectionLabel>
-          <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-6">
-            {commitments.map(([t, d], i) => (
-              <li key={t} className="border-t border-dashed border-fg/45 pt-5">
-                <Num n={i + 1} />
-                <h3 className="mt-3 text-[1.35rem]">{t}</h3>
-                <p className="mt-2">{d}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="mt-10">
+            <PhotoCards items={commitments.map(([t, d], i) => ({ img: commitmentImgs[i], title: t, text: d }))} />
+          </div>
         </div>
       </section>
 

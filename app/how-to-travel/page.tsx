@@ -4,9 +4,11 @@ import { RoutePlanner } from "@/components/journey/RoutePlanner";
 import { Chooser } from "@/components/travel/Chooser";
 import { StyleComparison } from "@/components/travel/StyleComparison";
 import { CtaBand } from "@/components/ui/CtaBand";
-import { DuneDivider } from "@/components/ui/DuneDivider";
 import { PageHero } from "@/components/ui/PageHero";
-import { DashedRule, SectionLabel, Statement } from "@/components/ui/Section";
+import { ParallaxImage } from "@/components/ui/Parallax";
+import { PhotoStatement } from "@/components/ui/PhotoStatement";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionLabel, Statement } from "@/components/ui/Section";
 import { journeys } from "@/data/journeys";
 import { pageMetadata } from "@/lib/seo";
 
@@ -37,21 +39,14 @@ export default function HowToTravelPage() {
         img={{ src: "/photos/hero-how-to-travel.jpg", alt: "A 4x4 with a rooftop tent under storm clouds" }}
       />
 
-      <section aria-labelledby="intro-label" className="section-y bg-bg">
-        <div className="gutter">
-          <SectionLabel id="intro-label">Self-drive, guided or fly-in</SectionLabel>
-          <Statement className="mt-14 max-w-[60rem]">
-            Namibia has more gravel road than tarmac. We&rsquo;ll tell you which car, which tyres and where to fill up, or we&rsquo;ll put a guide at the wheel, or fly you over it all.
-          </Statement>
-        </div>
-      </section>
+      <PhotoStatement id="intro-label" label="Self-drive, guided or fly-in" img={{ src: "/photos/journal-self-drive.jpg", alt: "A gravel track winding through dry hills" }}>
+        Namibia has more gravel road than tarmac. We&rsquo;ll tell you which car, which tyres and where to fill up, or put a guide at the wheel, or fly you over it all.
+      </PhotoStatement>
 
-      <DuneDivider into="alt" variant={2} />
       <section aria-labelledby="compare-label" className="section-y relative bg-bg-alt">
         <div className="gutter">
           <SectionLabel id="compare-label">The honest comparison</SectionLabel>
-          <DashedRule className="mt-10" />
-          <div className="mt-6">
+          <div className="mt-10">
             <StyleComparison />
           </div>
         </div>
@@ -67,25 +62,32 @@ export default function HowToTravelPage() {
         </div>
       </section>
 
-      <section aria-labelledby="road-label" className="section-y bg-band">
-        <div className="gutter">
-          <SectionLabel id="road-label">Before you take the wheel</SectionLabel>
-          <ul className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-            {roadTruths.map(([t, d]) => (
-              <li key={t} className="border-t border-dashed border-fg/45 pt-5">
-                <h3 className="text-[1.3rem]">{t}</h3>
-                <p className="mt-2">{d}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-12">
-            More practical answers in the{" "}
-            <Link href="/faq" className="underline underline-offset-4">
-              FAQ
-            </Link>
-            .
-          </p>
-        </div>
+      <section aria-labelledby="road-label" className="relative bg-deep text-[#f5f0e8]">
+        <ParallaxImage img={{ src: "/photos/hero-destinations.jpg", alt: "A road winding through the desert" }} className="py-24 md:py-36">
+          <div className="absolute inset-0 bg-black/50" aria-hidden />
+          <div className="gutter relative">
+            <h2 id="road-label" className="label text-[#f6c88f]">
+              Before you take the wheel
+            </h2>
+            <p className="statement mt-6 max-w-[40rem] text-[1.9rem] md:text-[2.8rem]">Six honest things about Namibia&rsquo;s roads.</p>
+            <ul className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {roadTruths.map(([t, d], i) => (
+                <Reveal as="li" key={t} delay={(i % 3) * 0.08} className="border border-[#f5f0e8]/25 bg-[#0b0f17]/45 p-6 backdrop-blur-md">
+                  <p className="text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">({i + 1})</p>
+                  <h3 className="mt-3 text-[1.4rem]">{t}</h3>
+                  <p className="mt-2 text-[#f5f0e8]/90">{d}</p>
+                </Reveal>
+              ))}
+            </ul>
+            <p className="mt-12">
+              More practical answers in the{" "}
+              <Link href="/faq" className="underline underline-offset-4">
+                FAQ
+              </Link>
+              .
+            </p>
+          </div>
+        </ParallaxImage>
       </section>
 
       <section aria-labelledby="planner-label" className="section-y bg-bg">

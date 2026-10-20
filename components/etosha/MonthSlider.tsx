@@ -1,12 +1,18 @@
 "use client";
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import { useState } from "react";
-import { VerifyTag } from "@/components/ui/Section";
 import { etoshaMonths, seasonLabel } from "@/data/etosha";
 import type { EtoshaSeason } from "@/types/content";
 
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const seasonPhoto: Record<EtoshaSeason, { src: string; alt: string }> = {
+  dry: { src: "/photos/dest-etosha-2.jpg", alt: "An elephant drinking at an Etosha waterhole in the dry season" },
+  transition: { src: "/photos/band-etosha.jpg", alt: "A lone tree on the edge of the Etosha pan" },
+  green: { src: "/photos/journal-etosha.jpg", alt: "Giraffe and zebra drinking at a waterhole" },
+};
+
 const seasonColour: Record<EtoshaSeason, string> = {
   dry: "bg-apricot",
   transition: "bg-[#c9a77a]",
@@ -68,15 +74,16 @@ export function MonthSlider({ initial = 7 }: { initial?: number }) {
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="grid gap-10 lg:grid-cols-[1fr_1.4fr]"
+            className="relative isolate grid gap-10 lg:grid-cols-[1fr_1.4fr]"
           >
-            <div>
-              <p className="text-sm uppercase tracking-[0.08em] text-muted">
-                {seasonLabel[e.season]}
-                {e.verify && <VerifyTag />}
+            <div className="relative flex min-h-[26rem] flex-col justify-end overflow-hidden p-6 text-[#f5f0e8] md:p-8">
+              <Image src={seasonPhoto[e.season].src} alt={seasonPhoto[e.season].alt} fill sizes="(min-width: 1024px) 40vw, 100vw" className="-z-10 object-cover" />
+              <div className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(0_0_0/0.1)_0%,rgb(0_0_0/0.75)_100%)]" aria-hidden />
+              <p className="text-sm uppercase tracking-[0.12em] text-[#f6c88f]">
+                {monthNames[m - 1]} · {seasonLabel[e.season]}
               </p>
               <p className="statement mt-3 text-[1.9rem] md:text-[2.4rem]">{e.headline}</p>
-              <p className="mt-4">{e.weather}</p>
+              <p className="mt-4 text-[#f5f0e8]/90">{e.weather}</p>
             </div>
             <dl className="grid gap-6 sm:grid-cols-2">
               <Item label="Wildlife">{e.wildlife}</Item>

@@ -2,8 +2,9 @@ import Image from "next/image";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { PageHero } from "@/components/ui/PageHero";
 import { ParallaxBand } from "@/components/ui/Parallax";
-import { Reveal } from "@/components/ui/Reveal";
-import { DashedRule, Num, PlaceholderTag, SectionLabel, Statement } from "@/components/ui/Section";
+import { PhotoCards } from "@/components/ui/PhotoCards";
+import { PhotoStatement } from "@/components/ui/PhotoStatement";
+import { Num, PlaceholderTag, SectionLabel } from "@/components/ui/Section";
 import { cultures } from "@/data/cultures";
 import { pageMetadata } from "@/lib/seo";
 
@@ -22,6 +23,14 @@ const principles = [
   ["Small and unhurried", "Small groups, a guide from the community, time to talk. A conversation, not a spectacle."],
 ];
 
+// Landscapes and craft only: we don't show people who haven't agreed to it.
+const principleImgs = [
+  { src: "/photos/culture-craft.jpg", alt: "Woven baskets hanging on a wall" },
+  { src: "/photos/dest-twyfelfontein.jpg", alt: "Animal engravings on sandstone at Twyfelfontein" },
+  { src: "/photos/dest-kaokoland.jpg", alt: "Rocky mountains and scrub in the far north-west" },
+  { src: "/photos/dest-zambezi-2.jpg", alt: "Sunset over the Chobe River" },
+];
+
 export default function CulturesPage() {
   return (
     <>
@@ -38,28 +47,16 @@ export default function CulturesPage() {
         img={{ src: "/photos/hero-cultures.jpg", alt: "Golden light and an acacia in the hills of the north-west" }}
       />
 
-      <section aria-labelledby="intro-label" className="section-y bg-bg">
-        <div className="gutter">
-          <SectionLabel id="intro-label">With respect</SectionLabel>
-          <Statement className="mt-14 max-w-[62rem]">
-            The people of Namibia are not part of the scenery. They are farmers, teachers, guides, artists and conservationists, with long histories, some of them painful. We&rsquo;d like you to meet people the way you&rsquo;d want to be met.
-          </Statement>
-        </div>
-      </section>
+      <PhotoStatement id="intro-label" label="With respect" img={{ src: "/photos/culture-landscape.jpg", alt: "Rocky hills and scrub under a hazy sun in the north-west" }}>
+        The people of Namibia are not part of the scenery. They are farmers, teachers, guides, artists and conservationists, with long histories, some of them painful. We&rsquo;d like you to meet people the way you&rsquo;d want to be met.
+      </PhotoStatement>
 
       <section aria-labelledby="principles-label" className="section-y bg-bg-alt">
         <div className="gutter">
           <SectionLabel id="principles-label">How we visit</SectionLabel>
-          <DashedRule className="mt-10" />
-          <ol className="mt-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {principles.map(([t, d], i) => (
-              <Reveal as="li" key={t} delay={i * 0.08}>
-                <Num n={i + 1} />
-                <h3 className="mt-3 text-[1.35rem]">{t}</h3>
-                <p className="mt-2">{d}</p>
-              </Reveal>
-            ))}
-          </ol>
+          <div className="mt-10">
+            <PhotoCards columns={4} items={principles.map(([t, d], i) => ({ img: principleImgs[i], title: t, text: d }))} />
+          </div>
         </div>
       </section>
 

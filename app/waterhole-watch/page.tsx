@@ -1,10 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import { MonthSlider } from "@/components/etosha/MonthSlider";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { PageHero } from "@/components/ui/PageHero";
-import { ParallaxBand } from "@/components/ui/Parallax";
-import { DashedRule, Num, SectionLabel, Statement, VerifyTag } from "@/components/ui/Section";
+import { PhotoCards } from "@/components/ui/PhotoCards";
+import { PhotoStatement } from "@/components/ui/PhotoStatement";
+import { SectionLabel, VerifyTag } from "@/components/ui/Section";
 import { journeysFor } from "@/data/journeys";
 import { stays } from "@/data/stays";
 import { pageMetadata } from "@/lib/seo";
@@ -24,6 +24,13 @@ const tips = [
   ["Bring a warm layer", "Dry-season nights are cold, and the best floodlit sightings often come after ten."],
 ];
 
+const tipImgs = [
+  { src: "/photos/journey-kids.jpg", alt: "Giraffe at a waterhole in Etosha" },
+  { src: "/photos/style-self-drive.jpg", alt: "A 4x4 stopped for an elephant on a park road" },
+  { src: "/photos/band-etosha.jpg", alt: "A lone tree on the edge of the Etosha pan" },
+  { src: "/photos/etosha-waterhole-dusk.jpg", alt: "Two elephants at a waterhole just after sunset" },
+];
+
 export default function WaterholeWatchPage() {
   const etoshaJourneys = journeysFor("etosha");
   const etoshaStays = stays.filter((s) => s.destinationSlug === "etosha");
@@ -41,104 +48,94 @@ export default function WaterholeWatchPage() {
         }}
       />
 
-      <section aria-labelledby="intro-label" className="section-y bg-bg">
-        <div className="gutter">
-          <SectionLabel id="intro-label">Etosha changes with the rain</SectionLabel>
-          <Statement className="mt-14 max-w-[62rem]">
-            From roughly June to October, there&rsquo;s little water anywhere but the waterholes, and everything comes to drink. When the rains arrive, the pan can flood, the grass turns green, and the birds come in their thousands.
-          </Statement>
-          <p className="mt-8 text-muted">
-            Seasons shift each year with the rain. <VerifyTag>verify each season</VerifyTag>
-          </p>
-        </div>
-      </section>
+      <PhotoStatement
+        id="intro-label"
+        label="Etosha changes with the rain"
+        img={{
+          src: "/photos/dest-etosha.jpg",
+          alt: "Springbok, zebra and oryx at an Etosha waterhole",
+          srcNight: "/photos/etosha-waterhole-dusk.jpg",
+          altNight: "Two elephants at a waterhole just after sunset",
+        }}
+      >
+        From roughly June to October there&rsquo;s little water anywhere but the waterholes, and everything comes to drink. When the rains arrive, the pan can flood and the birds come in their thousands.
+      </PhotoStatement>
 
       <section aria-labelledby="slider-label" className="section-y bg-bg-alt">
         <div className="gutter">
-          <SectionLabel id="slider-label">Month by month</SectionLabel>
-          <div className="mt-12">
+          <div className="flex flex-wrap items-baseline justify-between gap-4">
+            <SectionLabel id="slider-label">Month by month</SectionLabel>
+            <p className="text-sm text-muted">
+              Seasons shift each year with the rain. <VerifyTag>verify each season</VerifyTag>
+            </p>
+          </div>
+          <div className="mt-10">
             <MonthSlider />
           </div>
         </div>
       </section>
 
-      <ParallaxBand
-        img={{
-          src: "/photos/band-etosha.jpg",
-          alt: "A lone tree on the edge of the Etosha pan",
-          srcNight: "/photos/etosha-waterhole-dusk.jpg",
-          altNight: "Two elephants at a waterhole just after sunset",
-        }}
-      />
-
-      <section aria-labelledby="night-label" className="section-y relative bg-deep text-on-deep">
-        <div className="starfield" aria-hidden />
-        <div className="gutter relative grid gap-12 md:grid-cols-2">
-          <div>
-            <SectionLabel id="night-label">After dark: the floodlit waterholes</SectionLabel>
-            <p className="statement mt-10 text-[1.75rem] md:text-[2.2rem]">Some of Etosha&rsquo;s best sightings happen after dinner.</p>
-            <div className="mt-8 max-w-[34rem] space-y-4">
-              <p>
-                Several of the rest camps inside the park have a floodlit waterhole a short walk from the rooms. You sit on a bench in the dark, behind a low wall, and wait. Black rhino are often seen here at night, along with elephants, lions and hyena. <VerifyTag>verify camps</VerifyTag>
-              </p>
-              <p>
-                Switch the site to night mode and the waterhole notes above move to the front. Our Etosha journeys always include at least two nights inside or right at the edge of the park, so you can walk to the water after dark.
-              </p>
-            </div>
-          </div>
-          <div className="relative min-h-[22rem]">
-            <Image src="/photos/etosha-waterhole-dusk.jpg" alt="Two elephants at a waterhole just after sunset" fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-          </div>
+      <PhotoStatement id="night-label" label="After dark: the floodlit waterholes" img={{ src: "/photos/etosha-waterhole-dusk.jpg", alt: "Two elephants at a waterhole just after sunset" }}>
+        Some of Etosha&rsquo;s best sightings happen after dinner.
+      </PhotoStatement>
+      <div className="bg-deep text-on-deep">
+        <div className="gutter grid gap-6 pb-20 pt-4 md:grid-cols-2">
+          <p className="max-w-[36rem]">
+            Several of the rest camps inside the park have a floodlit waterhole a short walk from the rooms. You sit on a bench in the dark, behind a low wall, and wait. Black rhino are often seen here at night, along with elephants, lions and hyena. <VerifyTag>verify camps</VerifyTag>
+          </p>
+          <p className="max-w-[36rem]">
+            Switch the site to night mode and the waterhole notes move to the front. Our Etosha journeys always include at least two nights inside or right at the edge of the park, so you can walk to the water after dark.
+          </p>
         </div>
-      </section>
+      </div>
 
       <section aria-labelledby="tips-label" className="section-y bg-bg">
         <div className="gutter">
           <SectionLabel id="tips-label">How to watch a waterhole</SectionLabel>
-          <DashedRule className="mt-10" />
-          <ol className="mt-6 grid gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
-            {tips.map(([t, d], i) => (
-              <li key={t}>
-                <Num n={i + 1} />
-                <h3 className="mt-3 text-[1.35rem]">{t}</h3>
-                <p className="mt-2">{d}</p>
-              </li>
-            ))}
-          </ol>
+          <div className="mt-10">
+            <PhotoCards columns={4} items={tips.map(([t, d], i) => ({ img: tipImgs[i], title: t, text: d }))} />
+          </div>
         </div>
       </section>
 
       <section aria-labelledby="ej-label" className="section-y bg-bg-alt">
-        <div className="gutter grid gap-14 lg:grid-cols-2">
-          <div>
-            <SectionLabel id="ej-label">Etosha journeys</SectionLabel>
-            <ul className="mt-8">
-              {etoshaJourneys.map((j) => (
-                <li key={j.slug} className="border-t border-dashed border-line py-4 last:border-b">
-                  <Link href={`/journeys/${j.slug}`} className="statement text-[1.35rem] underline-offset-4 hover:underline">
-                    {j.title}
-                  </Link>
-                  <p className="mt-1 text-muted">{j.summary}</p>
-                </li>
-              ))}
-            </ul>
+        <div className="gutter">
+          <SectionLabel id="ej-label">Etosha journeys</SectionLabel>
+          <div className="mt-10">
+            <PhotoCards
+              columns={4}
+              items={etoshaJourneys.slice(0, 4).map((j) => ({ img: j.hero, title: j.title, kicker: `${j.days.length} DAYS`, href: `/journeys/${j.slug}` }))}
+            />
+            {etoshaJourneys.length > 4 && (
+              <p className="mt-6">
+                Also:{" "}
+                {etoshaJourneys.slice(4).map((j, i) => (
+                  <span key={j.slug}>
+                    {i > 0 && " · "}
+                    <Link href={`/journeys/${j.slug}`} className="underline underline-offset-4">
+                      {j.title}
+                    </Link>
+                  </span>
+                ))}
+              </p>
+            )}
           </div>
-          <div>
+          <div className="mt-14 grid gap-6 md:grid-cols-[16rem_1fr]">
             <p className="label">Where to stay</p>
-            <ul className="mt-8">
+            <ul className="space-y-4">
               {etoshaStays.map((s) => (
-                <li key={s.id} className="border-t border-dashed border-line py-4 last:border-b">
+                <li key={s.id}>
                   <p className="text-[1.25rem]">{s.name}</p>
-                  <p className="mt-1">{s.blurb}</p>
+                  <p className="mt-1 max-w-[40rem]">{s.blurb}</p>
                   {s.floodlitWaterhole && <p className="mt-1 text-sm text-accent">✦ Floodlit waterhole</p>}
                 </li>
               ))}
+              <li>
+                <Link href="/destinations/etosha" className="underline underline-offset-4">
+                  More on Etosha
+                </Link>
+              </li>
             </ul>
-            <p className="mt-6">
-              <Link href="/destinations/etosha" className="underline underline-offset-4">
-                More on Etosha
-              </Link>
-            </p>
           </div>
         </div>
       </section>

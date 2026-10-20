@@ -29,7 +29,8 @@
   color-scheme: light;
 }
 
-:root[data-theme="night"] {
+:root[data-theme="night"],
+.force-night {
   --bg: var(--c-navy);
   --bg-alt: var(--c-navy-raised);
   --bg-band: #1b2c46;

@@ -31,8 +31,8 @@ export default function Home() {
         img={{
           src: "/photos/hero-home-day.jpg",
           alt: "A tall dune at Sossusvlei, half in shadow and half lit orange",
-          srcNight: "/photos/hero-home-night.jpg",
-          altNight: "The Milky Way over the desert",
+          srcNight: "/photos/hero-home-night-spitzkoppe.jpg",
+          altNight: "The Milky Way over the granite peaks of Spitzkoppe",
         }}
         titleSize="clamp(2.9rem,8.1vw,8.6rem)" titleClass="md:whitespace-nowrap"
       >

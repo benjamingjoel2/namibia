@@ -45,7 +45,7 @@ export const imageCredits: Record<string, { name: string; username: string; phot
   "hero-destinations": { name: "Amar Hussain", username: "gapyearescape", photo: "https://unsplash.com/photos/a-dirt-road-in-the-middle-of-a-desert-Rl8WLKiV53Y" },
   "hero-faq": { name: "Jean Woloszczyk", username: "jeanwolo", photo: "https://unsplash.com/photos/a-group-of-mountains-in-the-distance-with-a-sky-background-kX1NTYP-OsE" },
   "hero-home-day": { name: "Dimitri Simon", username: "dudi_dudewitz", photo: "https://unsplash.com/photos/brown-sand-dunes-under-blue-sky-during-daytime-NXRFWKeOLkU" },
-  "hero-home-night": { name: "Sergi Ferrete", username: "sergiferrete", photo: "https://unsplash.com/photos/black-galaxy-sky-cEG7-_q93-I" },
+  "hero-home-night-spitzkoppe": { name: "NIR HIMI", username: "nirhimi", photo: "https://unsplash.com/photos/starry-night-sky-over-rocky-desert-landscape-smkAoRp_4Ks" },
   "hero-how-to-travel": { name: "Andrew Svk", username: "andrew_svk", photo: "https://unsplash.com/photos/a-car-with-a-roof-rack-on-the-back-of-it-driving-down-a-dirt-road-pUiN_mxCT94" },
   "hero-journal": { name: "Alan J. Hendry", username: "imedianamibia", photo: "https://unsplash.com/photos/dirt-road-on-vast-land-N4rjZLrm7gQ" },
   "hero-journeys": { name: "Bernd 📷 Dittrich", username: "hdbernd", photo: "https://unsplash.com/photos/a-tree-in-the-middle-of-a-desert-with-mountains-in-the-background-YaQZdbHAgVk" },

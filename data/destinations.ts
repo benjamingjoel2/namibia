@@ -19,8 +19,8 @@ export const destinations: Destination[] = [
     hero: {
       src: "/photos/dest-sossusvlei.jpg",
       alt: "A dune crest at Sossusvlei with a line of footprints",
-      srcNight: "/photos/hero-home-night.jpg",
-      altNight: "The Milky Way over the desert",
+      srcNight: "/photos/band-deadvlei-night.jpg",
+      altNight: "A dead camelthorn tree in Deadvlei under the stars",
     },
     detail: { src: "/photos/dest-sossusvlei-2.jpg", alt: "Dead camelthorn trees on Deadvlei's white pan" },
     bestLight: {

@@ -120,13 +120,20 @@ function arcPoint(t: number) {
  */
 export function DayStory() {
   const [active, setActive] = useState(0);
+  // Photos mount when their hour is current or next door, then stay mounted
+  // so crossfades back are instant. Keeps the first load to two photos.
+  const [seen, setSeen] = useState<Set<number>>(() => new Set([0, 1]));
   const refs = useRef<(HTMLElement | null)[]>([]);
 
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
-          if (e.isIntersecting) setActive(Number((e.target as HTMLElement).dataset.index));
+          if (e.isIntersecting) {
+            const i = Number((e.target as HTMLElement).dataset.index);
+            setActive(i);
+            setSeen((prev) => (prev.has(i + 1) && prev.has(i - 1) ? prev : new Set([...prev, i - 1, i, i + 1])));
+          }
         }
       },
       { rootMargin: "-50% 0px -50% 0px" },
@@ -147,14 +154,13 @@ export function DayStory() {
             key={c.img}
             className={`absolute inset-0 transition-opacity duration-[1200ms] ease-out ${i === active ? "opacity-100" : "opacity-0"}`}
           >
-            <Image
+            {seen.has(i) && <Image
               src={c.img}
               alt=""
               fill
               sizes="100vw"
-              loading={i < 2 ? "eager" : "lazy"}
               className={`object-cover transition-transform duration-[8000ms] ease-out ${i === active ? "scale-100" : "scale-[1.08]"}`}
-            />
+            />}
           </div>
         ))}
         <div className="absolute inset-0 transition-colors duration-[1200ms]" style={{ backgroundColor: ch.tint }} />

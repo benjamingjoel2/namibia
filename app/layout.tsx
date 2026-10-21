@@ -14,11 +14,14 @@ const archivo = Archivo({
   display: "swap",
 });
 
+// Body serif: one upright cut, not preloaded, so the heading font (the
+// largest text on every hero) downloads first.
 const newsreader = Newsreader({
   subsets: ["latin"],
-  style: ["normal", "italic"],
+  style: ["normal"],
   variable: "--font-newsreader",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {

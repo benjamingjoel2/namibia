@@ -1,6 +1,5 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
 import { destinations } from "@/data/destinations";
@@ -62,7 +61,6 @@ export function PlanningForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "failed">("idle");
   const { code } = useCurrency();
-  const reduce = useReducedMotion();
   const uid = useId();
   const formRef = useRef<HTMLFormElement>(null);
   const doneRef = useRef<HTMLDivElement>(null);
@@ -128,17 +126,9 @@ export function PlanningForm() {
   const err = (k: string) => (errors[k] ? `${uid}-${k}-err` : undefined);
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <>
       {status === "sent" ? (
-        <motion.div
-          key="done"
-          ref={doneRef}
-          tabIndex={-1}
-          initial={reduce ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="py-10 text-center outline-none"
-          role="status"
-        >
+        <div ref={doneRef} tabIndex={-1} className="fade-up py-10 text-center outline-none" role="status">
           <p className="display text-[2.2rem] md:text-[3rem]">Thank you</p>
           <p className="statement mx-auto mt-8 max-w-[30rem] text-[1.5rem] md:text-[1.9rem]">We&rsquo;ll be in touch before the next sunrise.</p>
           <p className="mt-8 text-muted">
@@ -148,9 +138,9 @@ export function PlanningForm() {
             </Link>
             .
           </p>
-        </motion.div>
+        </div>
       ) : (
-        <motion.form key="form" ref={formRef} onSubmit={submit} noValidate exit={reduce ? undefined : { opacity: 0 }} className="space-y-10">
+        <form ref={formRef} onSubmit={submit} noValidate className="space-y-10">
           {Object.keys(errors).length > 0 && (
             <div role="alert" className="border border-accent p-4 text-[0.98rem]">
               <p className="font-semibold">Please check {Object.keys(errors).length === 1 ? "one thing" : `${Object.keys(errors).length} things`} below.</p>
@@ -389,9 +379,9 @@ export function PlanningForm() {
               .
             </p>
           </div>
-        </motion.form>
+        </form>
       )}
-    </AnimatePresence>
+    </>
   );
 }
 

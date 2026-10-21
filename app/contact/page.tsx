@@ -39,7 +39,7 @@ export default function ContactPage() {
               Plan your journey
             </h1>
             <p className="mx-auto mt-6 max-w-[34rem] text-center text-[1.1rem] text-[#f5f0e8]/90">
-              Tell us when, how and what you&rsquo;d love to see. A planner will reply personally, before the next sunrise.
+              A planner will reply personally, before the next sunrise.
             </p>
           </div>
 

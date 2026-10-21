@@ -58,7 +58,7 @@ export function StyleComparison() {
               <dd className="mt-1 font-sans tracking-widest">{cost(p.costIndex)}</dd>
             </div>
           </dl>
-          <p className="mt-6 border-l-2 border-accent pl-4 italic">{p.honestNote}</p>
+          <p className="mt-6 border-l-2 border-accent pl-4">{p.honestNote}</p>
         </Reveal>
       ))}
     </ol>

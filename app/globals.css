@@ -179,7 +179,7 @@
   .prose-namib blockquote {
     border-left: 2px solid var(--accent);
     padding-left: 1em;
-    font-style: italic;
+    font-size: 1.1em;
     margin: 1.5em 0;
   }
 }
@@ -259,6 +259,19 @@
   }
   to {
     transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+/* One-off entrance, e.g. the planning form's thank-you. */
+@media (prefers-reduced-motion: no-preference) {
+  .fade-up {
+    animation: fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
   }
 }
 

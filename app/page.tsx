@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { FeaturedDestinations } from "@/components/home/FeaturedDestinations";
-import { Testimonials } from "@/components/home/Testimonials";
 import { ThreePoints } from "@/components/home/ThreePoints";
 import { DayStory } from "@/components/home/DayStory";
 import { PhotoStrip } from "@/components/home/PhotoStrip";
@@ -12,7 +11,6 @@ import { DuneDivider } from "@/components/ui/DuneDivider";
 import { PageHero } from "@/components/ui/PageHero";
 import { ctaLabel, site } from "@/config/site";
 import { featuredDestinations } from "@/data/destinations";
-import { testimonials } from "@/data/testimonials";
 import { travelAgencyJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
@@ -65,16 +63,6 @@ export default function Home() {
 
       <DuneDivider into="bg" variant={2} />
       <PhotoStrip />
-
-      <Testimonials
-        items={testimonials}
-        img={{
-          src: "/photos/band-etosha.jpg",
-          alt: "A lone tree on the edge of the Etosha pan",
-          srcNight: "/photos/band-deadvlei-night.jpg",
-          altNight: "Deadvlei's trees under a sky full of stars",
-        }}
-      />
 
       <CtaBand />
     </>

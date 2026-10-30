@@ -19,6 +19,9 @@ const nextConfig: NextConfig = {
       { source: "/images/:path*", headers: immutable },
     ];
   },
+  async redirects() {
+    return [{ source: "/credits", destination: "/our-story", permanent: true }];
+  },
   poweredByHeader: false,
 };
 

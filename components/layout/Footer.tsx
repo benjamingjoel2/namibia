@@ -10,16 +10,6 @@ export function Footer() {
       <div className="gutter pb-6 pt-16 md:pt-20">
         <div className="flex items-start justify-between gap-6">
           <Logo />
-          <ul className="flex items-center gap-5 text-sm">
-            {site.social.map((s) => (
-              <li key={s.label}>
-                <a href={s.href} className="underline-offset-4 hover:underline" rel="noopener noreferrer" target="_blank">
-                  {s.label}
-                  <span className="sr-only"> (opens in a new tab)</span>
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="mt-14 grid gap-12 md:mt-20 md:grid-cols-2">
@@ -48,16 +38,11 @@ export function Footer() {
                 {site.contact.email}
               </a>
             </p>
-            <p>
-              <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="underline-offset-[6px] hover:underline">
-                {site.contact.phone}
-              </a>
-            </p>
           </address>
         </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-between gap-4 text-sm text-on-deep/80 md:mt-20">
-          <p>{site.registration}</p>
+          <span />
           <CurrencySwitcher />
         </div>
 
@@ -72,7 +57,7 @@ export function Footer() {
             ))}
           </ul>
           <p>
-            © {year} {site.legalName}
+            © {year} {site.name}
           </p>
         </div>
       </div>

@@ -1,11 +1,8 @@
-import Image from "next/image";
 import { CtaBand } from "@/components/ui/CtaBand";
 import { PageHero } from "@/components/ui/PageHero";
 import { PhotoCards } from "@/components/ui/PhotoCards";
 import { PhotoStatement } from "@/components/ui/PhotoStatement";
-import { Reveal } from "@/components/ui/Reveal";
-import { DashedRule, Num, PlaceholderTag, SectionLabel } from "@/components/ui/Section";
-import { founder, team } from "@/data/team";
+import { SectionLabel } from "@/components/ui/Section";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
@@ -40,54 +37,6 @@ export default function OurStoryPage() {
       <PhotoStatement id="purpose-label" label="Why we exist" img={{ src: "/photos/journey-photographers.jpg", alt: "A dead camelthorn tree in Deadvlei" }}>
         The best journeys here are slow and well-timed: a dune at dawn with nobody else on it, a waterhole at dusk, a night so dark you can see the Milky Way&rsquo;s shadow. Everything we plan is built around that, and around the people who call this country home.
       </PhotoStatement>
-
-      <section aria-labelledby="founder-label" className="bg-bg-alt">
-        <div className="grid md:grid-cols-2">
-          <div className="gutter section-y">
-            <div className="flex flex-wrap items-center gap-3">
-              <SectionLabel id="founder-label">Where it began</SectionLabel>
-              <PlaceholderTag />
-            </div>
-            <h3 className="mt-10 text-[1.75rem] md:mt-14">{founder.name}</h3>
-            <p className="mt-1 text-muted">{founder.role}</p>
-            <p className="mt-6 max-w-[33rem]">{founder.bio}</p>
-          </div>
-          <div className="relative min-h-[30rem] md:min-h-[42rem]">
-            <Image src={founder.image.src} alt={founder.image.alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-          </div>
-        </div>
-      </section>
-
-      <section aria-labelledby="team-label" className="section-y bg-bg">
-        <div className="gutter">
-          <div className="flex flex-wrap items-center gap-3">
-            <SectionLabel id="team-label">The team</SectionLabel>
-            <PlaceholderTag />
-          </div>
-          <ul className="mt-10">
-            {team.map((m, i) => {
-              const flip = i % 2 === 1;
-              return (
-                <li key={m.role}>
-                  <DashedRule />
-                  <Reveal className={`grid gap-6 py-6 md:grid-cols-[minmax(0,28.5rem)_1fr] ${flip ? "md:grid-cols-[1fr_minmax(0,28.5rem)]" : ""}`}>
-                    <div className={`relative aspect-[1.27] overflow-hidden ${flip ? "md:order-2" : ""}`}>
-                      <Image src={m.image.src} alt={m.image.alt} fill sizes="(min-width: 768px) 456px, 100vw" className="object-cover" />
-                    </div>
-                    <div className="max-w-[36rem]">
-                      <Num n={i + 1} />
-                      <h3 className="mt-3 text-[1.55rem]">{m.name}</h3>
-                      <p className="mt-1 text-muted">{m.role}</p>
-                      <p className="mt-6">{m.bio}</p>
-                    </div>
-                  </Reveal>
-                </li>
-              );
-            })}
-          </ul>
-          <DashedRule />
-        </div>
-      </section>
 
       <section aria-labelledby="how-label" className="section-y bg-bg-alt">
         <div className="gutter">

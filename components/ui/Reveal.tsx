@@ -1,11 +1,9 @@
-"use client";
-
-import { useEffect, useRef } from "react";
-
 /**
- * Gentle fade-up on scroll. Content is visible in the server HTML; the hidden
- * start state only applies once JS has marked <html class="js">, so nothing
- * stays invisible if scripts fail. Reduced motion skips the movement.
+ * Gentle fade-up on scroll. Plain server-rendered markup: one shared observer
+ * (components/ui/RevealObserver.tsx) adds `is-in` when it scrolls into view, so
+ * no JS ships per element. Content is visible in the server HTML; the hidden
+ * start state only applies once JS has marked <html class="js">. Reduced
+ * motion skips the movement.
  */
 export function Reveal({
   children,
@@ -18,29 +16,8 @@ export function Reveal({
   className?: string;
   as?: "div" | "li" | "article";
 }) {
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add("is-in");
-            io.unobserve(e.target);
-          }
-        }
-      },
-      { rootMargin: "0px 0px -10% 0px" },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
   return (
     <Tag
-      ref={ref as React.Ref<never>}
       className={`reveal ${className}`}
       style={delay ? ({ "--reveal-delay": `${delay}s` } as React.CSSProperties) : undefined}
     >

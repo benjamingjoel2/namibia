@@ -3,6 +3,7 @@ import { Archivo, Newsreader } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ThemeScript } from "@/components/layout/ThemeScript";
+import { RevealObserver } from "@/components/ui/RevealObserver";
 import { site } from "@/config/site";
 import { CurrencyProvider } from "@/lib/currency";
 import "./globals.css";
@@ -67,6 +68,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main">{children}</main>
           <Footer />
         </CurrencyProvider>
+        <RevealObserver />
       </body>
     </html>
   );

@@ -23,12 +23,12 @@ export function CurrencySwitcher({ className = "" }: { className?: string }) {
   );
 }
 
-/** "from $4,850" in the visitor's chosen currency. */
+/** "From $4,850" in the visitor's chosen currency. */
 export function Price({ usd, suffix = "pp" }: { usd: number; suffix?: string }) {
   const { code } = useCurrency();
   return (
     <span>
-      from <strong className="font-semibold">{formatPrice(usd, code)}</strong>
+      From <strong className="font-semibold">{formatPrice(usd, code)}</strong>
       {suffix && <span className="text-muted"> {suffix}</span>}
     </span>
   );

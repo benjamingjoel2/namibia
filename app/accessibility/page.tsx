@@ -6,7 +6,7 @@ export const metadata = pageMetadata({ title: "Accessibility statement", descrip
 
 export default function AccessibilityPage() {
   return (
-    <LegalPage title="Accessibility" updated="PLACEHOLDER">
+    <LegalPage title="Accessibility" updated="30 October 2026" placeholder={false}>
       <p>We want everyone to be able to plan a journey with us. This website aims to meet the Web Content Accessibility Guidelines (WCAG) 2.2 at level AA.</p>
       <h2>What we&rsquo;ve done</h2>
       <ul>
@@ -20,12 +20,11 @@ export default function AccessibilityPage() {
       </ul>
       <h2>Known limitations</h2>
       <ul>
-        <li>Team portraits are still placeholders; their descriptions will be updated when real photos are added.</li>
-        <li>PLACEHOLDER: results of an independent audit.</li>
+        <li>The site has not yet had an independent accessibility audit. We test it with keyboard navigation and automated checks, and fix issues as we find them.</li>
       </ul>
       <h2>Tell us</h2>
       <p>
-        If anything on this site is hard to use, email <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a> or call {site.contact.phone}. We&rsquo;ll help you plan by email or phone in the meantime, and fix what we can.
+        If anything on this site is hard to use, email <a href={`mailto:${site.contact.email}`}>{site.contact.email}</a>. We&rsquo;ll help you plan by email in the meantime, and fix what we can.
       </p>
       <p>We also plan journeys for travellers with access needs. Tell us what you need, and we&rsquo;ll be honest about what&rsquo;s possible on Namibia&rsquo;s roads and in its camps.</p>
     </LegalPage>

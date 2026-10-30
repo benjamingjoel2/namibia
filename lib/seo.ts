@@ -31,12 +31,11 @@ export function travelAgencyJsonLd() {
     url: site.url,
     description: site.description,
     email: site.contact.email,
-    telephone: site.contact.phone,
     slogan: site.promise,
     areaServed: { "@type": "Country", name: "Namibia" },
     address: {
       "@type": "PostalAddress",
-      streetAddress: site.contact.address[0],
+      streetAddress: "The Hub Initiative HQ, Unit 10, Pietan Park, 13 Reger Street",
       addressLocality: "Windhoek",
       addressCountry: "NA",
     },

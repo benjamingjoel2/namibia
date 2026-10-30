@@ -98,19 +98,7 @@ export default function ContactPage() {
                   {site.contact.email}
                 </a>
               </Info>
-              <Info label="Phone">
-                <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="underline underline-offset-4">
-                  {site.contact.phone}
-                </a>
-              </Info>
-              <Info label="WhatsApp">
-                <a href={`https://wa.me/${site.contact.whatsapp.replace(/[^\d]/g, "")}`} className="underline underline-offset-4" rel="noopener noreferrer" target="_blank">
-                  {site.contact.whatsapp}
-                  <span className="sr-only"> (opens WhatsApp)</span>
-                </a>
-              </Info>
-              <Info label="Hours">Monday to Friday, 08:00–17:00 Namibian time (PLACEHOLDER). Travellers on the road: 24 hours.</Info>
-              <Info label="Registration">{site.registration}</Info>
+              <Info label="Hours">Monday to Friday, 08:00–17:00 Namibian time. We reply within one working day.</Info>
             </dl>
           </div>
         </ParallaxImage>

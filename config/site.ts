@@ -1,23 +1,16 @@
-/** Brand settings. Everything marked PLACEHOLDER must be replaced before launch. */
+/** Brand settings. No phone, WhatsApp, social links or licence numbers (owner decision). */
 export const site = {
   name: "Namib Light",
-  legalName: "Namib Light Journeys (Pty) Ltd", // PLACEHOLDER
   promise: "Follow the light. Stay for the stars.",
   description:
     "Private journeys across Namibia: Sossusvlei's dunes at sunrise, Etosha's waterholes, the Skeleton Coast and some of the darkest skies on Earth. Self-drive, guided or fly-in.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://namib-light.vercel.app",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://namiblight.tourground.com",
   locale: "en_GB",
   contact: {
-    address: ["PLACEHOLDER Street 00", "Windhoek, Namibia"],
-    email: "hello@namiblight.example",
-    phone: "+264 00 000 0000",
-    whatsapp: "+264 00 000 0000",
+    /** Business address: The Hub Initiative HQ, premium coworking in Windhoek. */
+    address: ["The Hub Initiative HQ, Unit 10, Pietan Park", "13 Reger Street, Windhoek, Namibia"],
+    email: "namiblight@tourground.com",
   },
-  registration: "Namibia Tourism Board reg. no. PLACEHOLDER",
-  social: [
-    { label: "Instagram", href: "https://instagram.com/" },
-    { label: "YouTube", href: "https://youtube.com/" },
-  ],
 } as const;
 
 export const mainNav = [
@@ -43,10 +36,10 @@ export const footerNav = [
 ] as const;
 
 export const legalNav = [
-  { label: "Privacy", href: "/privacy" },
-  { label: "Terms", href: "/terms" },
+  { label: "Privacy policy", href: "/privacy" },
+  { label: "Booking terms", href: "/terms" },
+  { label: "Cookie policy", href: "/cookies" },
   { label: "Accessibility statement", href: "/accessibility" },
-  { label: "Photo credits", href: "/credits" },
 ] as const;
 
 export const ctaLabel = "Plan Your Journey";

@@ -30,7 +30,7 @@ Set `NEXT_PUBLIC_SITE_URL` (for example in Vercel project settings) to the live 
 | Etosha month by month | `data/etosha.ts` |
 | Southern sky month by month | `data/sky.ts` |
 | Cultures of Namibia | `data/cultures.ts` |
-| Team, testimonials, FAQ | `data/team.ts`, `data/testimonials.ts`, `data/faq.ts` |
+| FAQ | `data/faq.ts` |
 | Travel styles and the chooser's questions and scoring | `data/travelStyles.ts` |
 | Journal posts (MDX with frontmatter) | `content/journal/*.mdx` |
 | Content types | `types/content.ts` |
@@ -41,9 +41,7 @@ Each journey day in `data/journeys.ts` has `distanceKm`, `gravelKm` (tarmac is t
 
 ### Images
 
-Photographs are from Unsplash (Unsplash License), self-hosted in `public/photos/`; photographers are listed in `data/imageCredits.ts` and on `/credits`. To swap a photo, add it under a **new** file name (image caches are keyed on the URL, so reusing a name can keep serving the old picture), then update the path and `alt` text in `/data` and the entry in `data/imageCredits.ts`. Images with a `srcNight` show that version in night mode.
-
-Photos live in `public/photos/`. Team portraits (`public/images/team-*.jpg`) are still generated placeholders; `npm run placeholders` regenerates only those.
+Photographs are from Unsplash (Unsplash License), self-hosted in `public/photos/`; the Unsplash License needs no attribution, so no credits are shown (owner decision). To swap a photo, add it under a **new** file name (image caches are keyed on the URL, so reusing a name can keep serving the old picture), then update the path and `alt` text in `/data`. Images with a `srcNight` show that version in night mode.
 
 ## Before launch
 
@@ -52,9 +50,9 @@ Search the code for `PLACEHOLDER` and `verify`. In particular:
 - **Entry requirements** (FAQ): visa rules changed recently. Verify against official Namibian government sources.
 - **Malaria, park fees, seasons, sky notes**: each is marked *verify* on the page.
 - **Cultures of Namibia**: have it reviewed with community representatives; replace placeholder partners.
-- **Team portraits**: placeholders; use real, consented photos of the actual team.
-- **Testimonials**: placeholders. Add real, consented quotes; names only with permission.
-- **Team, stays, address, phone, NTB registration, legal pages**: placeholders.
+- **Stays**: placeholder names (labelled on the site).
+- **Legal pages** (privacy, booking terms, cookies): complete drafts; have a lawyer review them.
+- **Contact**: `namiblight@tourground.com` and the business address (The Hub Initiative HQ, Windhoek) are set. No phone, WhatsApp, social links, team bios, testimonials or registration numbers by owner decision.
 - **Exchange rates** in `config/currency.ts` are indicative.
 
 ## Enquiries

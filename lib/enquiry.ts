@@ -5,7 +5,7 @@ import { z } from "zod";
 export const travelStyles = ["self-drive", "guided", "fly-in", "not-sure"] as const;
 export const interests = ["photography", "wildlife", "stars", "culture", "walking", "desert"] as const;
 export const stayStyles = ["camping", "lodges", "luxury-camps"] as const;
-export const contactMethods = ["email", "whatsapp", "phone"] as const;
+export const contactMethods = ["email", "phone"] as const;
 
 /** Per-person budget bands, stored in USD; labels are converted for display. */
 export const budgetBands = [
@@ -44,7 +44,7 @@ export const enquirySchema = z
     if (v.childAges.length !== v.children) {
       ctx.addIssue({ code: "custom", path: ["childAges"], message: "Please give an age for each child" });
     }
-    if ((v.contactMethod === "whatsapp" || v.contactMethod === "phone") && v.phone.length < 6) {
+    if (v.contactMethod === "phone" && v.phone.length < 6) {
       ctx.addIssue({ code: "custom", path: ["phone"], message: "Add a number so we can reach you that way" });
     }
   });

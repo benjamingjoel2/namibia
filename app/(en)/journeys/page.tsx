@@ -1,3 +1,4 @@
+import { intlLocale } from "@/lib/locale";
 import Image from "next/image";
 import Link from "next/link";
 import { Price } from "@/components/layout/CurrencySwitcher";
@@ -68,7 +69,7 @@ export default function JourneysPage() {
                     </div>
                     <div>
                       <dt className="text-sm text-[#f5f0e8]/70">On the road</dt>
-                      <dd>{t.km > 0 ? `${t.km.toLocaleString("en-GB")} km` : "Flown"}</dd>
+                      <dd>{t.km > 0 ? `${t.km.toLocaleString(intlLocale)} km` : "Flown"}</dd>
                     </div>
                     <div>
                       <dt className="text-sm text-[#f5f0e8]/70">Stargazing nights</dt>

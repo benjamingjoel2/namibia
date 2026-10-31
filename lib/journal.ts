@@ -1,9 +1,17 @@
+import { intlLocale, locale } from "@/lib/locale";
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import type { JournalMeta } from "@/types/content";
 
-const DIR = path.join(process.cwd(), "content/journal");
+// English posts live in content/journal; translations in content/journal-<locale> (same slugs).
+const DIRS = {
+  en: path.join(process.cwd(), "content", "journal"),
+  fr: path.join(process.cwd(), "content", "journal-fr"),
+  de: path.join(process.cwd(), "content", "journal-de"),
+  es: path.join(process.cwd(), "content", "journal-es"),
+};
+const DIR = DIRS[locale];
 
 function readPost(file: string) {
   const raw = fs.readFileSync(path.join(DIR, file), "utf8");
@@ -34,7 +42,7 @@ export function getPost(slug: string) {
   return readPost(file);
 }
 
-export const formatDate = (iso: string) => new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+export const formatDate = (iso: string) => new Date(iso).toLocaleDateString(intlLocale, { day: "numeric", month: "long", year: "numeric" });
 
 export function readingMinutes(content: string) {
   return Math.max(1, Math.round(content.split(/\s+/).length / 220));

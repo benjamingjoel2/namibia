@@ -1,5 +1,6 @@
 "use client";
 
+import { intlLocale } from "@/lib/locale";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 import { currencies, defaultCurrency, type CurrencyCode } from "@/config/currency";
 
@@ -41,5 +42,5 @@ export function formatPrice(usd: number, code: CurrencyCode) {
   const raw = usd * c.rateFromUSD;
   const step = raw >= 100000 ? 1000 : raw >= 10000 ? 100 : 50;
   const rounded = Math.round(raw / step) * step;
-  return `${c.symbol}${rounded.toLocaleString("en-GB")}`;
+  return `${c.symbol}${rounded.toLocaleString(intlLocale)}`;
 }

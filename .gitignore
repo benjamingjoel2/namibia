@@ -6,3 +6,11 @@ out
 next-env.d.ts
 .env*.local
 .DS_Store
+
+# generated translations (scripts/i18n.mjs)
+/app/fr/
+/app/de/
+/app/es/
+/i18n/gen/
+/i18n/strings.json
+/i18n/missing.json

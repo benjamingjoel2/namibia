@@ -1,3 +1,4 @@
+import { intlLocale } from "@/lib/locale";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -81,7 +82,7 @@ export default async function JourneyPage({ params }: Props) {
               <MonthsStrip months={j.bestMonths} className="mt-1" />
             </Fact>
             <Fact label="On the road">
-              {t.km > 0 ? `${t.km.toLocaleString("en-GB")} km, ${Math.round((t.gravelKm / t.km) * 100)}% gravel` : "Almost none"}
+              {t.km > 0 ? `${t.km.toLocaleString(intlLocale)} km, ${Math.round((t.gravelKm / t.km) * 100)}% gravel` : "Almost none"}
               {t.flightMinutes > 0 && <span className="block">About {formatHours(t.flightMinutes / 60)} flying</span>}
             </Fact>
             <Fact label="Stargazing nights">

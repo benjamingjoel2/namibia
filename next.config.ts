@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // One root layout per language (app/(en), app/fr, app/de, app/es), so unmatched URLs need a global 404.
+  experimental: { globalNotFound: true },
   images: {
     formats: ["image/avif", "image/webp"],
     // One quality for every photo: full-bleed shots sit under dark overlays,

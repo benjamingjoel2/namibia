@@ -68,7 +68,7 @@ export default function ContactPage() {
               items={[
                 { img: { src: "/photos/journal-sossusvlei.jpg", alt: "A sunlit dune crest at Sossusvlei" }, kicker: "STEP 1", title: "You tell us", text: "Dates, travel style, must-sees. Five minutes on this page." },
                 { img: { src: "/photos/dest-spitzkoppe-2.jpg", alt: "The Spitzkoppe rock arch under the stars" }, kicker: "STEP 2", title: "We plan it around the light", text: "A route timed for sunrise, sunset and the moon, with honest distances and the right car." },
-                { img: { src: "/photos/stay-10.jpg", alt: "A campfire at a lodge among the rocks" }, kicker: "STEP 3", title: "We talk it through", text: "By email, WhatsApp or phone. Change anything until it feels right." },
+                { img: { src: "/photos/stay-10.jpg", alt: "A campfire at a lodge among the rocks" }, kicker: "STEP 3", title: "We talk it through", text: "By email, or on a call if you prefer. Change anything until it feels right." },
               ]}
             />
           </div>

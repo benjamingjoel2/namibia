@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ctaLabel, mainNav } from "@/config/site";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 
@@ -60,6 +61,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-5">
+          <LanguageSwitcher className="hidden md:flex" />
           <ThemeToggle />
           <Link
             href="/contact"
@@ -111,6 +113,7 @@ export function Header() {
           >
             {ctaLabel}
           </Link>
+          <LanguageSwitcher className="mt-8" />
         </nav>
       </div>
     </header>

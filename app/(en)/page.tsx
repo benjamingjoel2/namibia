@@ -12,10 +12,11 @@ import { PageHero } from "@/components/ui/PageHero";
 import { ctaLabel, site } from "@/config/site";
 import { featuredDestinations } from "@/data/destinations";
 import { travelAgencyJsonLd } from "@/lib/seo";
+import { languageAlternates } from "@/lib/i18n-paths";
 
 export const metadata: Metadata = {
   title: { absolute: `${site.name}: private journeys across Namibia` },
-  alternates: { canonical: "/" },
+  alternates: { canonical: "/", languages: languageAlternates("/") },
 };
 
 export default function Home() {

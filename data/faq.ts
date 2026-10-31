@@ -127,7 +127,7 @@ export const faqs: FaqItem[] = [
     category: "Booking",
     q: "What deposit do you take, and what if I need to cancel?",
     a: [
-      "PLACEHOLDER: deposit amount, balance due date and cancellation terms to be confirmed. Our full terms will be on the Terms page.",
+      "Your quote sets out the deposit that confirms your booking, the date the balance is due and the cancellation charges for your trip. The general principles are in our booking terms.",
       "We strongly recommend travel insurance that covers cancellation, medical care and evacuation.",
     ],
   },

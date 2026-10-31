@@ -1,10 +1,11 @@
 "use client";
 
+import { intlLocale } from "@/lib/locale";
 import { useEffect, useMemo, useState } from "react";
 import { moonInfo } from "@/lib/moonPhase";
 import { MoonGlyph } from "./MoonGlyph";
 
-const fmt = (d: Date) => d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+const fmt = (d: Date) => d.toLocaleDateString(intlLocale, { day: "numeric", month: "long", year: "numeric" });
 const iso = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
 const ratingText = { excellent: "Excellent dark sky", good: "Good, with some moonlight", moonlit: "Bright moon" } as const;
 
@@ -69,7 +70,7 @@ export function MoonPlanner() {
       </div>
 
       <div>
-        <p className="label">{date ? date.toLocaleDateString("en-GB", { month: "long", year: "numeric" }) : "This month"}</p>
+        <p className="label">{date ? date.toLocaleDateString(intlLocale, { month: "long", year: "numeric" }) : "This month"}</p>
         <div className="mt-4 grid grid-cols-7 gap-1 text-center text-xs text-muted" aria-hidden>
           {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((d) => (
             <span key={d}>{d}</span>

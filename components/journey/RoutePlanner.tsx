@@ -1,3 +1,4 @@
+import { intlLocale } from "@/lib/locale";
 import Link from "next/link";
 import { getStay } from "@/data/stays";
 import { formatHours, gravelShare, routeTotals, tarmacKm, vehicleLabel, vehicleWhy } from "@/lib/route";
@@ -19,7 +20,7 @@ export function RoutePlanner({ days, heading = "Route day planner" }: { days: Ro
       </div>
 
       <dl className="mt-6 grid grid-cols-2 gap-px border border-dashed border-line bg-line sm:grid-cols-4">
-        <Stat label="Total driving" value={`${t.km.toLocaleString("en-GB")} km`} />
+        <Stat label="Total driving" value={`${t.km.toLocaleString(intlLocale)} km`} />
         <Stat label="Gravel / tarmac" value={`${pct(t.gravelKm, t.km)}% / ${pct(t.tarmacKm, t.km)}%`} />
         <Stat label="Time at the wheel" value={formatHours(t.hours)} />
         {flying ? (

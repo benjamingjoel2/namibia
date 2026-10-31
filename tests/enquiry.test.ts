@@ -29,8 +29,8 @@ test("each child needs an age, with a friendly message", () => {
   if (!r2.success) assert.equal(fieldErrors(r2.error).childAges, "Please give an age for each child");
 });
 
-test("WhatsApp or phone contact needs a number", () => {
-  const r = enquirySchema.safeParse({ ...valid, contactMethod: "whatsapp", phone: "" });
+test("phone contact needs a number", () => {
+  const r = enquirySchema.safeParse({ ...valid, contactMethod: "phone", phone: "" });
   assert.equal(r.success, false);
   if (!r.success) assert.ok(fieldErrors(r.error).phone);
 });

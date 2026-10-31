@@ -55,6 +55,14 @@ Search the code for `PLACEHOLDER` and `verify`. In particular:
 - **Contact**: `namiblight@tourground.com` and the business address (The Hub Initiative HQ, Windhoek) are set. No phone, WhatsApp, social links, team bios, testimonials or registration numbers by owner decision.
 - **Exchange rates** in `config/currency.ts` are indicative.
 
+## Languages
+
+English (default, at the root), French (`/fr`), German (`/de`) and Spanish (`/es`). There is no i18n library and no translation JavaScript in the browser: `scripts/i18n.mjs` (run automatically as `prebuild`) writes a translated copy of the English routes in `app/(en)` to `app/fr`, `app/de` and `app/es`, plus the shared `components`, `data`, `config` and `lib` to `i18n/gen/<locale>`, using the dictionaries in `i18n/{fr,de,es}.json` (keyed by the English text). Each language has its own root layout, so `<html lang>` is correct and every page is pre-rendered. Journal posts are translated in `content/journal-<locale>/` (same slugs). The generated folders are git-ignored.
+
+- After changing English copy, run `node scripts/i18n.mjs --missing` to list the strings that need translating (written to `i18n/missing.json`), add them to the three dictionaries, then build. The build fails while any string is untranslated (set `I18N_LENIENT=1` to fall back to English temporarily).
+- A dictionary value equal to its key leaves text unchanged (place names, code-like strings).
+- The language selector (`components/layout/LanguageSwitcher.tsx`) links to the same page in each language; there is no automatic redirect. Canonical and hreflang alternates come from `lib/seo.ts` and `lib/i18n-paths.ts`; the sitemap lists every page in all four languages.
+
 ## Enquiries
 
 The planning form posts to `app/api/enquiry/route.ts`, which validates with the same schema as the form (`lib/enquiry.ts`) and logs the payload. There is a `TODO` for the CRM integration.

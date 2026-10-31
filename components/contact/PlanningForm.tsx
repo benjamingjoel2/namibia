@@ -327,9 +327,9 @@ export function PlanningForm() {
                   Preferred contact
                 </p>
                 <div className="mt-2 flex flex-wrap gap-2" role="radiogroup" aria-labelledby={`${uid}-pref`}>
-                  {(["email", "whatsapp", "phone"] as const).map((c) => (
+                  {(["email", "phone"] as const).map((c) => (
                     <Chip key={c} type="radio" name="contactMethod" checked={s.contactMethod === c} onChange={() => set("contactMethod", c)}>
-                      {c === "whatsapp" ? "WhatsApp" : c[0].toUpperCase() + c.slice(1)}
+                      {c === "phone" ? "Phone" : "Email"}
                     </Chip>
                   ))}
                 </div>

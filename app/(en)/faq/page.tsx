@@ -15,13 +15,15 @@ export const metadata = pageMetadata({
 
 const order: FaqItem["category"][] = ["Before you go", "On the road", "Health & safety", "Money", "Booking"];
 
-const topicImg: Record<FaqItem["category"], { src: string; alt: string }> = {
-  "Before you go": { src: "/photos/hero-journeys.jpg", alt: "Acacias and mountains in the Namib" },
-  "On the road": { src: "/photos/hero-how-to-travel.jpg", alt: "A 4x4 with a rooftop tent under storm clouds" },
-  "Health & safety": { src: "/photos/dest-kalahari.jpg", alt: "Red Kalahari sand and a camelthorn tree" },
-  Money: { src: "/photos/dest-windhoek.jpg", alt: "Windhoek's Christuskirche" },
-  Booking: { src: "/photos/stay-1.jpg", alt: "A tented chalet in the desert" },
-};
+// Images in the same order as `order` (looked up by position, so translated category names still match).
+const topicImgs: { src: string; alt: string }[] = [
+  { src: "/photos/hero-journeys.jpg", alt: "Acacias and mountains in the Namib" },
+  { src: "/photos/hero-how-to-travel.jpg", alt: "A 4x4 with a rooftop tent under storm clouds" },
+  { src: "/photos/dest-kalahari.jpg", alt: "Red Kalahari sand and a camelthorn tree" },
+  { src: "/photos/dest-windhoek.jpg", alt: "Windhoek's Christuskirche" },
+  { src: "/photos/stay-1.jpg", alt: "A tented chalet in the desert" },
+];
+const topicImg = Object.fromEntries(order.map((c, i) => [c, topicImgs[i]])) as Record<FaqItem["category"], { src: string; alt: string }>;
 
 export default function FaqPage() {
   const jsonLd = {

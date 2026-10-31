@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { site } from "@/config/site";
+import { languageAlternates, localePath } from "@/lib/i18n-paths";
+import { locale } from "@/lib/locale";
 import type { Journey } from "@/types/content";
 
 export function pageMetadata({
@@ -17,7 +19,7 @@ export function pageMetadata({
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: languageAlternates(path) },
     openGraph: { title, description, url: path, ...(images && { images }) },
     twitter: { title, description, ...(images && { images: images.map((i) => i.url) }) },
   };
@@ -28,7 +30,7 @@ export function travelAgencyJsonLd() {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     name: site.name,
-    url: site.url,
+    url: `${site.url}${localePath("/", locale)}`,
     description: site.description,
     email: site.contact.email,
     slogan: site.promise,
@@ -49,7 +51,7 @@ export function journeyJsonLd(j: Journey) {
     "@type": "TouristTrip",
     name: j.title,
     description: j.summary,
-    url: `${site.url}/journeys/${j.slug}`,
+    url: `${site.url}${localePath(`/journeys/${j.slug}`, locale)}`,
     image: `${site.url}${j.hero.src}`,
     touristType: j.tags,
     provider: { "@type": "TravelAgency", name: site.name, url: site.url },
@@ -58,7 +60,7 @@ export function journeyJsonLd(j: Journey) {
       price: minPrice,
       priceCurrency: "USD",
       description: "Indicative 'from' price per person sharing",
-      url: `${site.url}/contact`,
+      url: `${site.url}${localePath("/contact", locale)}`,
     },
     itinerary: {
       "@type": "ItemList",

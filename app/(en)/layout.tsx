@@ -5,8 +5,10 @@ import { Header } from "@/components/layout/Header";
 import { ThemeScript } from "@/components/layout/ThemeScript";
 import { RevealObserver } from "@/components/ui/RevealObserver";
 import { site } from "@/config/site";
+import { locale } from "@/lib/locale";
+import { OG_LOCALES } from "@/lib/i18n-paths";
 import { CurrencyProvider } from "@/lib/currency";
-import "./globals.css";
+import "../globals.css";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -36,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: site.name,
-    locale: site.locale,
+    locale: OG_LOCALES[locale],
     images: [{ url: "/photos/og-default.jpg", width: 1200, height: 630, alt: "Namib Light: dunes at first light" }],
   },
   twitter: { card: "summary_large_image" },
@@ -52,7 +54,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-GB" className={`${archivo.variable} ${newsreader.variable}`} suppressHydrationWarning>
+    <html lang={locale === "en" ? "en-GB" : locale} className={`${archivo.variable} ${newsreader.variable}`} suppressHydrationWarning>
       <head>
         <ThemeScript />
       </head>

@@ -282,3 +282,10 @@
 :root:not([data-theme="night"]) .night-only {
   display: none !important;
 }
+
+/* Legal pages: tables and section spacing for the HTML copy in data/legal.json */
+.legal section:first-child h2 { margin-top: 0; }
+.legal-table { overflow-x: auto; margin-bottom: 1.1em; }
+.legal table { width: 100%; border-collapse: collapse; font-size: 0.95rem; line-height: 1.5; }
+.legal th, .legal td { text-align: left; vertical-align: top; padding: 0.6em 0.8em 0.6em 0; border-bottom: 1px solid color-mix(in srgb, currentColor 18%, transparent); }
+.legal code { font-size: 0.875em; word-break: break-all; }

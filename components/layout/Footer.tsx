@@ -25,7 +25,7 @@ export function Footer() {
             </ul>
           </nav>
 
-          <address className="statement space-y-5 not-italic text-[1.6rem] md:text-[2.5rem]">
+          <address className="space-y-3 not-italic text-[1rem] leading-relaxed md:text-[1.0625rem]">
             <p>
               {site.contact.address.map((line) => (
                 <span key={line} className="block">
@@ -34,7 +34,7 @@ export function Footer() {
               ))}
             </p>
             <p>
-              <a href={`mailto:${site.contact.email}`} className="break-all underline-offset-[6px] hover:underline">
+              <a href={`mailto:${site.contact.email}`} className="break-all underline underline-offset-4">
                 {site.contact.email}
               </a>
             </p>

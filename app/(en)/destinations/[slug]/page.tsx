@@ -152,7 +152,7 @@ export default async function DestinationPage({ params }: Props) {
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.2)_0%,rgb(0_0_0/0.7)_100%)]" aria-hidden />
           <div className="gutter absolute inset-x-0 bottom-0 pb-12">
             <p className="text-sm tracking-[0.2em] text-[#f6c88f]">NEXT DESTINATION →</p>
-            <p className="display mt-4 text-[clamp(2.4rem,7vw,7rem)]">{next.name.split(",")[0]}</p>
+            <p className="display mt-4 text-[clamp(2.2rem,1.4rem+3vw,4.5rem)]">{next.name.split(",")[0]}</p>
             <p className="mt-4 max-w-[34rem] text-[1.1rem] text-[#f5f0e8]/90">{next.tagline}</p>
           </div>
         </Link>

@@ -56,7 +56,7 @@ export default function DestinationsPage() {
                   <p className="text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">
                     ({String(i + 1).padStart(2, "0")}) · {d.region.toUpperCase()}
                   </p>
-                  <h3 className="display mt-4 text-[clamp(2.4rem,7vw,7rem)]">
+                  <h3 className="display mt-4 text-[clamp(2.2rem,1.4rem+3vw,4.5rem)]">
                     <Link href={`/destinations/${d.slug}`} className="after:absolute after:inset-0">
                       {d.name.split(",")[0]}
                     </Link>

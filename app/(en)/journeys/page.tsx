@@ -50,7 +50,7 @@ export default function JourneysPage() {
                   <p className="text-sm tabular-nums tracking-[0.2em] text-[#f6c88f]">
                     ({String(i + 1).padStart(2, "0")}) · {j.days.length} DAYS
                   </p>
-                  <h3 className="display mt-4 max-w-[70rem] text-[clamp(2.2rem,6vw,6rem)]">
+                  <h3 className="display mt-4 max-w-[70rem] text-[clamp(2rem,1.3rem+2.8vw,4.25rem)]">
                     <Link href={`/journeys/${j.slug}`} className="after:absolute after:inset-0">
                       {j.title}
                     </Link>

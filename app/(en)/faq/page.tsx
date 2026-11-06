@@ -66,7 +66,7 @@ export default function FaqPage() {
               <Image src={topicImg[c].src} alt={topicImg[c].alt} fill sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgb(0_0_0/0.15)_0%,rgb(0_0_0/0.65)_100%)]" aria-hidden />
               <div className="gutter absolute inset-x-0 bottom-0 pb-8">
-                <h2 id={slug(c)} className="display" style={{ fontSize: "min(clamp(2.2rem,6vw,5.6rem), calc((100vw - 2.6rem) / 7.6))" }}>
+                <h2 id={slug(c)} className="display" style={{ fontSize: "min(clamp(2rem,1.3rem + 2.6vw,4rem), calc((100vw - 2.6rem) / 7.6))" }}>
                   {c}
                 </h2>
               </div>

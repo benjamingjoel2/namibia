@@ -169,7 +169,7 @@ export function DayStory() {
         {/* Clock and sky rail */}
         <div className="absolute inset-x-0 top-[4.6rem] flex flex-col items-start gap-3 px-5 md:items-end md:px-6">
           <div className="md:text-right">
-            <p className="display text-[clamp(2.6rem,7vw,6.5rem)] tabular-nums [text-shadow:0_2px_24px_rgb(0_0_0/0.35)]">{ch.time}</p>
+            <p className="display text-[clamp(2.4rem,1.6rem+3vw,4.75rem)] tabular-nums [text-shadow:0_2px_24px_rgb(0_0_0/0.35)]">{ch.time}</p>
             <p className="mt-2 text-sm uppercase tracking-[0.2em] text-[#f5f0e8]/90 [text-shadow:0_1px_8px_rgb(0_0_0/0.6)]">
               {ch.moment} · {ch.place}
             </p>

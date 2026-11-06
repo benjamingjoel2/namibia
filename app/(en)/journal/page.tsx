@@ -31,7 +31,7 @@ export default function JournalPage() {
               <p className="text-sm tracking-[0.2em] text-[#f6c88f]">
                 LATEST · <time dateTime={lead.date}>{formatDate(lead.date).toUpperCase()}</time>
               </p>
-              <h3 className="display mt-4 max-w-[64rem] text-[clamp(2.2rem,5.6vw,5.6rem)]">
+              <h3 className="display mt-4 max-w-[64rem] text-[clamp(2rem,1.3rem+2.6vw,4rem)]">
                 <Link href={`/journal/${lead.slug}`} className="after:absolute after:inset-0">
                   {lead.title}
                 </Link>

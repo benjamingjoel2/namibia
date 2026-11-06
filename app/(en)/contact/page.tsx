@@ -35,10 +35,10 @@ export default function ContactPage() {
 
         <div className="relative pb-24 md:pb-32">
           <div className="gutter pt-[4.6rem] text-[#f5f0e8]">
-            <h1 id="contact-title" className="display text-center" style={{ fontSize: "min(clamp(2.6rem,8.4vw,8.6rem), calc((100vw - 2.6rem) / 7.2))" }}>
+            <h1 id="contact-title" className="display" style={{ fontSize: "min(clamp(2.4rem,1.4rem + 3.4vw,4.75rem), calc((100vw - 2.6rem) / 7.2))" }}>
               Plan your journey
             </h1>
-            <p className="mx-auto mt-6 max-w-[34rem] text-center text-[1.1rem] text-[#f5f0e8]/90">
+            <p className="mt-6 max-w-[34rem] text-[1.1rem] text-[#f5f0e8]/90">
               A planner will reply personally, before the next sunrise.
             </p>
           </div>

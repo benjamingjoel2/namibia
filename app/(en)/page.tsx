@@ -33,7 +33,7 @@ export default function Home() {
           srcNight: "/photos/hero-home-night-spitzkoppe.jpg",
           altNight: "The Milky Way over the granite peaks of Spitzkoppe",
         }}
-        
+        titleSize="clamp(2.9rem,8.1vw,8.6rem)" titleClass="md:whitespace-nowrap"
       >
         <ArrowButton href="/contact" tone="light">
           {ctaLabel}
